@@ -32,8 +32,8 @@ theme:
       toggle:
         icon: material/brightness-3
         name: 切换到暗黑模式
-      accent: deep orange
-      primary: deep orange
+      accent: indigo
+      primary: indigo
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
