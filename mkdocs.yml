@@ -1,0 +1,63 @@
+site_name: NISA Wiki
+site_description: NISA Wiki 是 NISA 的知识库，旨在总结网络安全领域的知识和经验。
+site_author: NISA
+site_url: https://FJNU-NISA.github.io/NISA-Wiki/
+repo_url: https://github.com/FJNU-NISA/NISA-Wiki
+repo_name: FJNU-NISA/NISA-Wiki
+copyright: Copyright &copy; 2025 - Present NISA
+theme:
+  name: material
+  logo: assets/NISA_LOGO.svg
+  # favicon: assets/NISA_LOGO.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+  language: zh
+  palette: 
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 自动切换亮暗模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-3
+        name: 切换到暗黑模式
+      accent: deep orange
+      primary: deep orange
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-5
+        name: 切换到亮色模式
+      accent: indigo
+      primary: indigo
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+extra:
+  homepage: https://www.fjnusec.cn/
+  # social:
+  #   - icon: fontawesome/brands/mastodon 
+  #     link: https://fosstodon.org/@squidfunk
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: FJNU-NISA/NISA-Wiki
+      branch: main
+      enabled: true
+  - git-authors
+  - search
+  - offline
+extra_css:
+  - stylesheets/logo.css
