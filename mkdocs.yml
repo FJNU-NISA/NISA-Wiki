@@ -48,7 +48,7 @@ extra:
   #     link: https://fosstodon.org/@squidfunk
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: enable
       enabled: !ENV [CI, false]
   - git-committers:
       repository: FJNU-NISA/NISA-Wiki
