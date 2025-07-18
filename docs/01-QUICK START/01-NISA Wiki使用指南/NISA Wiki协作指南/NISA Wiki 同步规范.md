@@ -1,4 +1,4 @@
-# 如何编写NISA Wiki
+# NISA Wiki 同步规范
 
 本文以 Windows 下, 使用 [VScode](https://code.visualstudio.com/) 为环境来演示
 
