@@ -1,5 +1,7 @@
 # NISA Wiki 同步规范
 
+如果你是作为 NISA 的一员, 你首先需要申请加入 NISA 的 Github 组织, 才能编辑该仓库
+
 本文以 Windows 下, 使用 [VScode](https://code.visualstudio.com/) 为环境来演示
 
 ## Clone-克隆
