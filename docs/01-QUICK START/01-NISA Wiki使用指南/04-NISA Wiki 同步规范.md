@@ -1,6 +1,6 @@
 # NISA Wiki 同步规范
 
-如果你是作为 NISA 的一员, 你首先需要申请加入 NISA 的 Github 组织, 才能编辑该仓库
+如果你是作为 NISA 的一员, 你首先需要申请加入 NISA 的 Github 组织, 才能编辑该仓库. 当然, 如果你不是组织一员, 我们也很乐意你们提 PR
 
 本文以 Windows 下, 使用 [VScode](https://code.visualstudio.com/) 为环境来演示
 

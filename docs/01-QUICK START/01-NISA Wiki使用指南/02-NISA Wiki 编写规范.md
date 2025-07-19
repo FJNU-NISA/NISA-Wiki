@@ -1,5 +1,9 @@
 # NISA Wiki 编写规范
 
+## 重点必看
+
+1. 尽可能不要移动文件的目录结构, 这个操作相当于删除文件后再新建, 会导致协作记录丢失
+
 ## Markdown 规范
 
 请先尽可能的学习 Markdown 的语法及规范, 熟练掌握文本编辑能力, Markdown 规范教程如下
@@ -16,6 +20,7 @@ https://markdown.com.cn/
 |   LICENSE   # 因为上传到了 github, 作为一个开源项目, 一个许可证是必不可少的, 这里选择了 CC4.0 协议
 |   mkdocs.yml   # 本 Wiki 采用 Material for MkDocs 作为框架, 这个文件是该框架的配置文件
 |   README.md   # 基本每个开源项目都会有该文件, 基本会写着项目的简介和使用
+|   requestment.txt   # 本地预览前需要安装的Python依赖
 \---.cache  # Material for MkDocs 启动本地预览时, 会生成的缓存文件
 \---.github  # Github 相关的配置文件
 |   \---workflows   # Github 自动化工作流配置文件放置的目录
