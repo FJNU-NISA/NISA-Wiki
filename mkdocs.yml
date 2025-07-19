@@ -1,0 +1,96 @@
+site_name: NISA Wiki
+site_description: NISA Wiki 是 NISA 的知识库，旨在总结网络安全领域的知识和经验。
+site_author: NISA
+site_url: https://FJNU-NISA.github.io/NISA-Wiki/
+repo_url: https://github.com/FJNU-NISA/NISA-Wiki
+repo_name: FJNU-NISA/NISA-Wiki
+copyright: Copyright &copy; 2025 - Present NISA
+theme:
+  name: material
+  logo: assets/NISA_LOGO.svg
+  # favicon: assets/NISA_LOGO.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.prune
+    - navigation.indexes
+    - navigation.path
+    - toc.follow
+  language: zh
+  palette: 
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 关闭切换亮暗模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-3
+        name: 切换到暗黑模式
+      accent: indigo
+      primary: indigo
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-5
+        name: 切换到亮色模式
+      accent: indigo
+      primary: indigo
+extra:
+  homepage: https://www.fjnusec.cn/
+  # social:
+  #   - icon: fontawesome/brands/mastodon 
+  #     link: https://fosstodon.org/@squidfunk
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enabled: !ENV [CI, false]
+  - git-committers:
+      repository: FJNU-NISA/NISA-Wiki
+      branch: main
+      enabled: !ENV [CI, false]
+  # - git-authors
+  - search
+  - offline
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: On this page
+      toc_depth: 5
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.blocks.caption
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/katex.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js  
