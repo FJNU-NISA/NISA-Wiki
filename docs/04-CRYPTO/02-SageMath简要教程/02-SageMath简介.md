@@ -39,67 +39,63 @@ x：变量名
 
 1. 求逆：e模n的逆
 
-如果`e`是定义在$Zmod(n)$上的元素，直接`e^-1`即可得到逆元。
-
-否则直接使用`inverse_mod(e,n)`，一般情况都是用`Crypto.Util.number`模块中的`inverse(e,n)`
+> 如果`e`是定义在$Zmod(n)$上的元素，直接`e^-1`即可得到逆元。
+> 否则直接使用`inverse_mod(e,n)`，一般情况都是用`Crypto.Util.number`模块中的`inverse(e,n)`
 
 2. 最大公因数：(a,b)的最大公因数
 
-`gcd(a,b)`
+> `gcd(a,b)`
 
 3. 最小公倍数：(a,b)的最小公倍数
 
-`lcm(a,b)`
+> `lcm(a,b)`
 
 4. 模幂：$e^x \mod n$
 
-如果`e`是定义在$Zmod(n)$上的元素，直接`e^x`即可，否则使用`pow(e,x,n)`
+> 如果`e`是定义在$Zmod(n)$上的元素，直接`e^x`即可，否则使用`pow(e,x,n)`
 
 5. 素数判断：
 
-```bash
-x = 7
-x.is_prime()
-# True
-```
-
-我一般用Crypto.Util.number模块中的`isPrime(x)`
+> ```bash
+> x = 7
+> x.is_prime()
+> # True
+> ```
+> 我一般用Crypto.Util.number模块中的`isPrime(x)`
 
 6. 阶乘：
 
-`factorial(x)`
+> `factorial(x)`
 
 7. 欧拉函数
 
-```bash
-euler_phi(n)
-```
-
-求$\phi(n)$
+> ```bash
+> euler_phi(n)
+> ```
+> 求$\phi(n)$
 
 8. 中国剩余定理
 
-```bash
-crt([m1,m2],[n1,n2])
-```
+> ```bash
+> crt([m1,m2],[n1,n2])
+> ```
 
-求解同余方程组
-$$
-x \equiv m_1 \mod n_1\\
-x \equiv m_2 \mod n_2
-$$
+> 求解同余方程组
+> $$
+> x \equiv m_1 \mod n_1\\
+> x \equiv m_2 \mod n_2
+> $$
 
 9. 扩展欧几里得算法
 
-```bash
-d,x,y = xgcd(a,b)
-```
+> ```bash
+> d,x,y = xgcd(a,b)
+> ```
 
-$$
-d = gcd(a,b) = ax + by
-$$
-
-`gmpy2.gcdext(a,b)`
+> $$
+> d = gcd(a,b) = ax + by
+> $$
+> `gmpy2.gcdext(a,b)`
 
 10. 素数分解
 
