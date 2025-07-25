@@ -1802,58 +1802,33 @@
 <p>x：变量名</p>
 <h3 id="3">3. 基本数论函数<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <ol>
-<li>求逆：e模n的逆</li>
-</ol>
-<blockquote>
-<p>如果<code>e</code>是定义在<span class="arithmatex">\(Zmod(n)\)</span>上的元素，直接<code>e^-1</code>即可得到逆元。
-否则直接使用<code>inverse_mod(e,n)</code>，一般情况都是用<code>Crypto.Util.number</code>模块中的<code>inverse(e,n)</code></p>
-</blockquote>
-<ol>
-<li>最大公因数：(a,b)的最大公因数</li>
-</ol>
-<blockquote>
-<p><code>gcd(a,b)</code></p>
-</blockquote>
-<ol>
-<li>最小公倍数：(a,b)的最小公倍数</li>
-</ol>
-<blockquote>
-<p><code>lcm(a,b)</code></p>
-</blockquote>
-<ol>
-<li>模幂：<span class="arithmatex">\(e^x \mod n\)</span></li>
-</ol>
-<blockquote>
-<p>如果<code>e</code>是定义在<span class="arithmatex">\(Zmod(n)\)</span>上的元素，直接<code>e^x</code>即可，否则使用<code>pow(e,x,n)</code></p>
-</blockquote>
-<ol>
-<li>素数判断：</li>
-</ol>
-<blockquote>
-<p><div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
+<li>求逆：e模n的逆
+如果<code>e</code>是定义在<span class="arithmatex">\(Zmod(n)\)</span>上的元素，直接<code>e^-1</code>即可得到逆元。
+否则直接使用<code>inverse_mod(e,n)</code>，一般情况都是用<code>Crypto.Util.number</code>模块中的<code>inverse(e,n)</code></li>
+<li>最大公因数：(a,b)的最大公因数
+<code>gcd(a,b)</code></li>
+<li>最小公倍数：(a,b)的最小公倍数
+<code>lcm(a,b)</code></li>
+<li>模幂：<span class="arithmatex">\(e^x \mod n\)</span>
+如果<code>e</code>是定义在<span class="arithmatex">\(Zmod(n)\)</span>上的元素，直接<code>e^x</code>即可，否则使用<code>pow(e,x,n)</code></li>
+<li>素数判断：
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a>x.is_prime<span class="o">()</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos="3 "></span></a><span class="c1"># True</span>
 </code></pre></div>
-我一般用Crypto.Util.number模块中的<code>isPrime(x)</code></p>
-</blockquote>
-<ol>
+我一般用Crypto.Util.number模块中的<code>isPrime(x)</code></li>
 <li>阶乘：</li>
 </ol>
-<blockquote>
 <p><code>factorial(x)</code></p>
-</blockquote>
 <ol>
 <li>欧拉函数</li>
 </ol>
-<blockquote>
-<p><div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a>euler_phi<span class="o">(</span>n<span class="o">)</span>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a>euler_phi<span class="o">(</span>n<span class="o">)</span>
 </code></pre></div>
-求<span class="arithmatex">\(\phi(n)\)</span></p>
-</blockquote>
+<p>求<span class="arithmatex">\(\phi(n)\)</span></p>
 <ol>
 <li>中国剩余定理</li>
 </ol>
-<blockquote>
 <div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a>crt<span class="o">([</span>m1,m2<span class="o">]</span>,<span class="o">[</span>n1,n2<span class="o">])</span>
 </code></pre></div>
 <p>求解同余方程组
@@ -1861,18 +1836,15 @@ $$
 x \equiv m_1 \mod n_1\
 x \equiv m_2 \mod n_2
 $$</p>
-</blockquote>
 <ol>
 <li>扩展欧几里得算法</li>
 </ol>
-<blockquote>
 <div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos="1 "></span></a>d,x,y<span class="w"> </span><span class="o">=</span><span class="w"> </span>xgcd<span class="o">(</span>a,b<span class="o">)</span>
 </code></pre></div>
-<p>$$
+<div class="arithmatex">\[
 d = gcd(a,b) = ax + by
-$$
-<code>gmpy2.gcdext(a,b)</code></p>
-</blockquote>
+\]</div>
+<p><code>gmpy2.gcdext(a,b)</code></p>
 <ol>
 <li>素数分解</li>
 </ol>
@@ -2213,7 +2185,7 @@ $$</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月25日 06:55:01 UTC">2025年7月25日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月25日 07:00:34 UTC">2025年7月25日</span>
   </span>
 
     
