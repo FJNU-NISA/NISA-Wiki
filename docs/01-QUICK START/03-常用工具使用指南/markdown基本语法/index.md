@@ -73,15 +73,11 @@ Markdown 是一种轻量级标记语言，常用于编写说明文档、技术�
 
 使用三个反引号包裹代码，可以指定语言高亮。
 
-$$
-\text{```py}
-\\
-print("Hello, Markdown!")
-\\
-\text{```}
-$$
+\```py
 
-~~大概就是这个意思，我只能用Latex稍微表示一下~~
+print("Hello, Markdown!")
+
+\```
 
 ```py
 print("Hello, Markdown!")
