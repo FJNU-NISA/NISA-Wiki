@@ -8,7 +8,7 @@ copyright: Copyright &copy; 2025 - Present NISA
 theme:
   name: material
   logo: assets/NISA_LOGO.svg
-  # favicon: assets/NISA_LOGO.svg
+  favicon: assets/NISA_LOGO.svg
   icon:
     repo: fontawesome/brands/github
   features:
