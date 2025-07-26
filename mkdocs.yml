@@ -21,6 +21,7 @@ theme:
     - navigation.indexes
     - navigation.path
     - toc.follow
+    - navigation.sections
   language: zh
   palette: 
     - media: "(prefers-color-scheme)"
