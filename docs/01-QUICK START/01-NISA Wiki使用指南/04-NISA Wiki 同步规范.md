@@ -38,7 +38,7 @@ git pull origin main
 
 这里推荐使用 [VScode](https://code.visualstudio.com/) 作为编辑工具, 其有较好编写 Markdown 和 操作 git 仓库的环境, 下文
 
-具体内容规范请看 [NISA Wiki 编写规范](./NISA Wiki 编写规范.md)
+具体内容规范请看 [NISA Wiki 编写规范](./02-NISA%20Wiki%20编写规范.md)
 
 ## 上传-Push
 
