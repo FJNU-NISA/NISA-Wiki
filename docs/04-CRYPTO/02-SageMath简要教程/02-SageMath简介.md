@@ -37,110 +37,157 @@ x：变量名
 
 ### 3. 基本数论函数
 
-1. 求逆：e模n的逆
-> 如果`e`是定义在$Zmod(n)$上的元素，直接`e^-1`即可得到逆元。
-> 否则直接使用`inverse_mod(e,n)`，一般情况都是用`Crypto.Util.number`模块中的`inverse(e,n)`
-2. 最大公因数：(a,b)的最大公因数
-> `gcd(a,b)`
-3. 最小公倍数：(a,b)的最小公倍数
-> `lcm(a,b)`
-4. 模幂：$e^x \mod n$
-> 如果`e`是定义在$Zmod(n)$上的元素，直接`e^x`即可，否则使用`pow(e,x,n)`
-5. 素数判断：
-> ```bash
-> x = 7
-> x.is_prime()
-> # True
-> ```
-> 我一般用Crypto.Util.number模块中的`isPrime(x)`
-6. 阶乘：
-> `factorial(x)`
-7. 欧拉函数
-> ```bash
-> euler_phi(n)
-> ```
-> 求$\phi(n)$
-8. 中国剩余定理
-> ```bash
-> crt([m1,m2],[n1,n2])
-> ```
-> 求解同余方程组
-> $$
-> x \equiv m_1 \mod n_1\\
-> x \equiv m_2 \mod n_2
-> $$
-9. 扩展欧几里得算法
-> ```bash
-> d,x,y = xgcd(a,b)
-> ```
-> $$
-> d = gcd(a,b) = ax + by
-> $$
-> `gmpy2.gcdext(a,b)`
-10. 素数分解
-> ```bash
-> factor(1024)
-> # 2^10 
-> prime_divisors(1024)
-> # [2]
-> divisors(1024)
-> # [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
-> ```
-> $p_1^{e_1} * p_2^{e_2} ... p_n^{e_n}$
-11. 开根
-> 整数域开根
-> $$
-> x^m = y
-> $$
-> 已知$y,m$求$x$
-> ```bash
-> y = 87^8
-> y.nth_root(8)
-> # 87
-> ```
-> 有限域开根
-> $$
-> x^m \equiv y \mod N
-> $$
-> 已知$y,m,N$求$x$
-> ```bash
-> y = pow(78,888,65537)
-> x = Zmod(65537)(y).nth_root(888)
-> print(x)
-> # 78
-> ```
-> $$
-> c \equiv m^e \mod n
-> $$
-> `x = Zmod(n)(c).nth_root(e)`
-> 注意：开根有多解，`nth_root`只会返回一个解，如果需要得到所有解，可以多加一个参数
-> `x = Zmod(65537)(y).nth_root(888,all=True)`
-> ```bash
-> y = pow(78,888,65537)
-> x = Zmod(65537)(y).nth_root(888,all=True)
-> print(x)
-> # [78, 64289, 19968, 8197, 65459, 1248, 45569, 57340]
-> ```
-12. 离散对数
-> sage实现了多种离散对数的求解方法
-> $$
-> y \equiv x^m \mod p
-> $$
-> 参数说明：求解以`base`为底，`a`的对数；`ord`为`base`的阶（可以缺省），`operation`可以是`+`，`*`，默认是`*`；`bound`是一个区间`(ld,ud)`，需要保证所计算的对数在此区间内
-> + `discrete_log(a,base,ord,operation)`
->   通用的求离散对数的方法
-> + `discrete_log_rho(a,base,ord,operation)`
->   求离散对数的Pollard-Rho算法
-> + `discrete_log_lambda(a,base,bounds,operation)`
-> ​		求离散对数的Pollard-kangaroo算法（也称lambda算法）
-> + bsgs(base,a,bounds,operation)
->   大步小步算法
-> 当`operation`为`+`时，一般是应用在椭圆曲线的离散对数
+1.求逆：e模n的逆
+
+如果`e`是定义在$Zmod(n)$上的元素，直接`e^-1`即可得到逆元。
+否则直接使用`inverse_mod(e,n)`，一般情况都是用`Crypto.Util.number`模块中的`inverse(e,n)`
+
+2.最大公因数：(a,b)的最大公因数
+
+`gcd(a,b)`
+
+3.最小公倍数：(a,b)的最小公倍数
+
+`lcm(a,b)`
+
+4.模幂：$e^x \mod n$
+
+如果`e`是定义在$Zmod(n)$上的元素，直接`e^x`即可，否则使用`pow(e,x,n)`
+
+5.素数判断：
+
+```bash
+x = 7
+x.is_prime()
+# True
+```
+
+我一般用Crypto.Util.number模块中的`isPrime(x)`
+
+6.阶乘：
+
+`factorial(x)`
+
+7.欧拉函数
+
+```bash
+euler_phi(n)
+```
+
+求$\phi(n)$
+
+8.中国剩余定理
+
+```bash
+crt([m1,m2],[n1,n2])
+```
+
+求解同余方程组
+
+$$
+\begin{align}
+x \equiv m_1 \mod n_1 \\
+x \equiv m_2 \mod n_2
+\end{align}
+$$
+
+9.扩展欧几里得算法
+
+```bash
+d,x,y = xgcd(a,b)
+```
+
+$$
+d = gcd(a,b) = ax + by
+$$
+
+`gmpy2.gcdext(a,b)`
+
+10.素数分解
+
+```bash
+factor(1024)
+# 2^10 
+prime_divisors(1024)
+# [2]
+divisors(1024)
+# [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+```
+
+$p_1^{e_1} * p_2^{e_2} ... p_n^{e_n}$
+
+11.开根
+
+整数域开根
+
+$$
+x^m = y
+$$
+
+已知$y,m$求$x$
+
+```bash
+y = 87^8
+y.nth_root(8)
+# 87
+```
+
+有限域开根
+
+$$
+x^m \equiv y \mod N
+$$
+
+已知$y,m,N$求$x$
+
+```bash
+y = pow(78,888,65537)
+x = Zmod(65537)(y).nth_root(888)
+print(x)
+# 78
+```
+
+$$
+c \equiv m^e \mod n
+$$
+
+`x = Zmod(n)(c).nth_root(e)`
+
+注意：开根有多解，`nth_root`只会返回一个解，如果需要得到所有解，可以多加一个参数
+
+`x = Zmod(65537)(y).nth_root(888,all=True)`
+
+```bash
+y = pow(78,888,65537)
+x = Zmod(65537)(y).nth_root(888,all=True)
+print(x)
+# [78, 64289, 19968, 8197, 65459, 1248, 45569, 57340]
+```
+
+12.离散对数
+sage实现了多种离散对数的求解方法
+
+$$
+y \equiv x^m \mod p
+$$
+
+参数说明：求解以`base`为底，`a`的对数；`ord`为`base`的阶（可以缺省），`operation`可以是`+`，`*`，默认是`*`；`bound`是一个区间`(ld,ud)`，需要保证所计算的对数在此区间内
+
++ `discrete_log(a,base,ord,operation)`
+  通用的求离散对数的方法
++ `discrete_log_rho(a,base,ord,operation)`
+  求离散对数的Pollard-Rho算法
++ `discrete_log_lambda(a,base,bounds,operation)`
+​		求离散对数的Pollard-kangaroo算法（也称lambda算法）
++ bsgs(base,a,bounds,operation)
+  大步小步算法
+当`operation`为`+`时，一般是应用在椭圆曲线的离散对数
+
 ### 4. 线性代数相关函数
 
 + 矩阵的定义运算
 
-  1. 一般矩阵定义
+  1.一般矩阵定义
 
   ```bash
   # 定义整数环上的矩阵
@@ -159,14 +206,11 @@ x：变量名
   M = Matrix(GF(2),10,10)
   ```
 
-  2. 分块矩阵定义：
+  2.分块矩阵定义：
 
-  $$
-  M = \begin{bmatrix}
-  A & B\\
-  C & D
-  \end{bmatrix}
-  $$
+$$
+M = \begin{bmatrix} A & B \\ C & D \end{bmatrix}
+$$
 
   ```bash
   A = Matrix(GF(2),10,10)
@@ -180,7 +224,7 @@ x：变量名
   # 矩阵的规模
   ```
 
-  3. 矩阵运算
+  3.矩阵运算
 
   ```python
   M1 = Matrix([
@@ -227,6 +271,7 @@ a_{n1}x_1 + a_{n2}x_2 + ... + a_{nm}x_m = b_n\\
 $$
 
 矩阵表示：$Ax = B$
+
 $$
 A = \begin{bmatrix}
 a_{11} & a_{12} & ... & a_{1m}\\
@@ -291,7 +336,7 @@ solve_mod([f1,f2],97)
 """
 ```
 
-### 5. 多项式环及其函数
+### 5.多项式环及其函数
 
 + 多项式环定义
 
@@ -418,7 +463,7 @@ print(B)
 
 分别是a,b,c的值
 
-### 6. 格相关函数
+### 6.格相关函数
 
 常用的两个：
 
