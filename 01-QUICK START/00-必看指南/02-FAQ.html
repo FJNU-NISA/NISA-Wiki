@@ -944,7 +944,16 @@
           <li class="md-nav__item">
   <a href="#q_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Q:
+      Q: 想当黑客学什么（雾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-hvv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 什么是hvv行动
     </span>
   </a>
   
@@ -1262,6 +1271,8 @@
       
         
       
+        
+      
     
     
     
@@ -1461,6 +1472,61 @@
   
   <span class="md-ellipsis">
     Git使用技巧
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../03-%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/VSCode/index.html" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    VSCode
     
   </span>
   
@@ -2490,7 +2556,16 @@
           <li class="md-nav__item">
   <a href="#q_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Q:
+      Q: 想当黑客学什么（雾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-hvv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 什么是hvv行动
     </span>
   </a>
   
@@ -2521,7 +2596,7 @@
 
 
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
-<p>汇总一些新手会遇到的问题, 不定期更新中</p>
+<p>汇总一些新手会遇到的问题, 不定期更新中(有问题及时反馈, 学长会汇总整理)</p>
 <h2 id="_1">竞赛相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="q-ctf">Q: 什么是 CTF<a class="headerlink" href="#q-ctf" title="Permanent link">&para;</a></h3>
 <p>A: 「CTF Capture The Flag」中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。CTF 起源于 1996 年 DEFCON 全球黑客大会，以代替之前黑客们通过相发起真实攻击进行技术比拼的方式；其将安全相关的知识点抽象出来并加入到题目中，我们通过对知识点的理解认知，具体地进行实践来攻克题目。</p>
@@ -2529,18 +2604,44 @@
 <p>A: 参赛团队之间通过进行攻防对抗、程序分析等形式，率先从主办方给出的比赛环境中得到一串具有一定格式的字符串或其他内容，并将其提交给主办方，从而夺得分数。为了方便称呼，我们把这样的内容称之为“Flag”</p>
 <h3 id="q-ctf_1">Q: CTF 竞赛模式？<a class="headerlink" href="#q-ctf_1" title="Permanent link">&para;</a></h3>
 <p>A: CTF 有个人赛和团队赛，在主流比赛中多为团队赛；</p>
+<p>CTF 赛制分多种，国内常见的为「 解题模式 Jeopardy 」「 攻防模式 | AWD (Attack With Defense) 」「 静态攻防 AWDP (Attack With Defence Plus) 」一般分为线上线下两个阶段，线上通常采用 解题模式 ，线下通常为 CTF +( 理论 )+ AWD/AWDP 模式，具体看主办方安排。</p>
+<ul>
+<li>「 解题模式 Jeopardy 」目前大多数国内外 CTF 比赛的主流形式，选手自由组队参赛。题目通常在比赛过程中陆续放出。解出一道题目后，提交题目对应的 flag 即可得分，比赛结束时分高者获胜。</li>
+<li>「 攻防模式 | AWD (Attack With Defense) 」通常为现场比赛，多数 CTF 决赛的比赛形式，选手自由组队参赛。每个队伍都有自己的 gamebox，其上运行着一些带有漏洞的服务。参赛战队需要找到漏洞对其他队伍 gamebox 发起攻击，也需要通过 patch 服务来加固自己的 gamebox。相比于解题模式，时间更短，比赛中更注重临场反应和解题速度，需要能够快速攻击目标主机的权限，考察团队多方面的综合安全能力。</li>
+<li>「 静态攻防 AWDP (Attack With Defence Plus) 」解题 + 加固赛，相比 AWD 赛制取消了 gamebox，主办方会根据出题人设置的脚本判断提交的 patch 是否有效（攻击则和解题模式类似），参赛队伍无法直接攻击其他队伍。每个回合，参赛队伍都会根据自己攻击和加固成功的题目（以及相应题目的解题队伍数）来得分，以累积得分作为排行依据。</li>
+</ul>
+<blockquote>
+<p>存有疑惑？没关系，我们下面还有更迷糊的 x 暂时了解就好啦，在 CTF 中，我们一般接触的最多的就是「 解题模式 Jeopardy 」。</p>
+</blockquote>
 <h3 id="q-ctf_2">Q: CTF 的竞赛方向<a class="headerlink" href="#q-ctf_2" title="Permanent link">&para;</a></h3>
-<p>A: </p>
+<p>A: 由于 CTF 知识面很广，一个人不可能面面俱到，所以选手们通常都会选择一个自己喜欢的方向深入研究，，通常分为五个方向:PWN、WEB、REVERSE、CRYPTO、MISC：</p>
+<ul>
+<li>「 二进制漏洞利用 Pwn 」Pwn 在安全领域是「攻破」的意思。主要研究程序漏洞利用技术，例如栈溢出、堆管理器的漏洞利用和其他高阶技巧；挖掘和分析各类基于编译型语言的漏洞。二进制攻击涉及到栈溢出、堆溢出、格式化字符串漏洞等二进制漏洞，选手需要借助这些漏洞获取计算机权限，从而拿到 flag ——PWN!(指声音</li>
+<li>「 网络攻防 WEB 」着重于 Web 应用程序，框架，浏览器以及各类 Web 服务器的安全问题；挖掘 / 利用 / 研究各类 Web 系漏洞，探究其形成原理、利用方式及修补方案。题目常见的漏洞类型包括注入、XSS、文件包含、代码执行、上传、SSRF 等，选手通过漏洞直接或者间接拿到 shell 或者得到某些关键文件从而得到 Flag。 ——汪汪汪</li>
+<li>「 逆向工程 Reverse Engineering 」研究各类操作系统，编译器，虚拟机的底层架构，以 Windows 和 Linux 为平台，学习可执行程序的逆向分析技术，如软件调试与破解，对已经编译完成的可执行文件进行分析，研究程序的行为和算法，然后以此为依据，计算出出题人想隐藏的 flag </li>
+<li>「 密码学 CRYPTO 」密码学简单讲就古典密码和现代密码，当然大多数古典密码的题目目前都被划分到 MISC 中，目前的密码学反而更偏向现代密码学，常出现分组密码、流密码和公钥密码体制的考察，对初等数学、基本的数论有一定需求。选手通常被给予一个加密程序，抹去明文之后留下的加密过程和输出，要求选手通过密码体制的弱点来还原 flag。 ——听说 Oi 爷又 AK 了！</li>
+<li>「 杂项 MISC 」安全杂项涉及到古典密码学、编码、隐写术、电子取证、数据分析等广度极高的安全手段及利用方法，选手需要确定手段或者方法，反向的去破译取证从而拿到 flag，MISC 是 CTF 比赛中广度最高的方向，需要各个方向都有涉猎。 —— 嗯？题不知道丢哪？没事丢杂项就好！</li>
+<li>SOMETHING NEW 随着计算机技术的发展，也有一些新的方向如 「 区块链 Blockchain 」「 AI 安全 」「 物联网 IoT 」等的加入。这些内容我们会在进阶文档中更新。</li>
+</ul>
 <h3 id="q">Q: 我只是个萌新，为什么他们叫我师傅?<a class="headerlink" href="#q" title="Permanent link">&para;</a></h3>
 <p>A: CTF 圈子中，CTFer 们通常以"师傅"相互称呼。</p>
 <h3 id="q-writeup">Q: 什么是 WriteUP?<a class="headerlink" href="#q-writeup" title="Permanent link">&para;</a></h3>
-<p>A: </p>
+<p>A: 又称作 WP，是记录 CTF 比赛中解题过程的文章，通常包含题目描述、解题思路、解题过程、源码分析、脚本分析等内容。当然你也可以简单理解为解题报告 —— 题解。</p>
+<p>其他名词解释</p>
+<ul>
+<li>一把梭 代指一类解题过程或者方法，一般指将题目中给出的对应的附件 / 代码 / 密文等，直接丢到某个工具或者网站上，就能得到 flag 的解题方法。</li>
+<li>套娃 一是指一些题目比如说加密题，嵌套了多层的加密，需要多次解密才能得到 flag，即一道题中可能涉及到多个知识点的考察； 二是带有一定贬义意义，通常指出题人只是为了出题而出题，单纯的、一味的、向题目中叠加 tricks，导致本来就不新颖的题目还变得更加复杂，使得题目的难度无意义的变高。</li>
+</ul>
 <h3 id="q-ctf_3">Q: 学习 CTF 有什么要求么?<a class="headerlink" href="#q-ctf_3" title="Permanent link">&para;</a></h3>
 <p>A: <strong>信息检索能力</strong> 和 <strong>学习能力</strong> 这两者</p>
 <p>即可说人话就是，会用搜索引，知道怎么检索信息，知道怎么验证信息正确性，知道怎么在垃圾场里面翻有用信息然后就是拿到信息之后，快速学习，知道怎么运用知识点。至少，别人的解题报告(一般我们称之为 WriteUp 简称 WP)你得看得懂，你会看着跟着复现。</p>
 <h2 id="_2">渗透相关<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="q_1">Q:<a class="headerlink" href="#q_1" title="Permanent link">&para;</a></h3>
-<p>A: </p>
+<h3 id="q_1">Q: 想当黑客学什么（雾<a class="headerlink" href="#q_1" title="Permanent link">&para;</a></h3>
+<p>A: 学渗透喵谢谢喵。</p>
+<p>渗透在ctf中的应用主要是在进了决赛后的awdp或awd，但不能仅仅局限于比赛中。平时的护网行动或找学校官网的漏洞都是很好的锻炼😋。具体的学习轨可以考虑先学web再转渗透（可以避免不会ctf止步赛的惨剧啊嗯）。再具体一点可以拉到最后面看渗透门喵。</p>
+<h3 id="q-hvv">Q: 什么是hvv行动<a class="headerlink" href="#q-hvv" title="Permanent link">&para;</a></h3>
+<p>A: https://bbs.sangfor.com.cn/forum.php?mod=viewthread&amp;tid=257451</p>
+<p>简单来讲就是政府机关负责举办的对各单位网络(学校，医院，银行，公司等)的维护比赛,分为攻击方(红队)与防守方(蓝队)，攻击方负责包括但不限于漏洞挖掘，社工等方式来发现对方网络以及人员脆弱的部分来获取分数。防守方则负责进行对攻击方的防守和担任网络警察的身份对攻击者进行溯源来获取分数</p>
 
 
 
@@ -2563,7 +2664,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月26日 13:22:04 UTC">2025年7月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年8月15日 15:22:27 UTC">2025年8月15日</span>
   </span>
 
     
