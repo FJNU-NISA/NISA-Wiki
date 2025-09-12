@@ -1987,6 +1987,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#wiki" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他 Wiki 推荐, 部分内容参考引用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       入门路线
@@ -2006,9 +2015,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
+  <a href="#web-wiki" class="md-nav__link">
     <span class="md-ellipsis">
-      Web 基础
+      Web 基础(可以去这个Wiki了解更多内容)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 基础
     </span>
   </a>
   
@@ -2049,13 +2067,17 @@
 
 <h1 id="penetration-">PENETRATION-渗透<a class="headerlink" href="#penetration-" title="Permanent link">&para;</a></h1>
 <p>渗透测试（Penetration Testing），简称“渗透”，是一种模拟黑客攻击的网络安全技术，目的是在不造成实际破坏的前提下，测试系统、网络或应用程序的安全性。通过发现和利用系统中的漏洞，渗透测试帮助企业或组织识别潜在风险，从而提前修补漏洞，提升整体防护能力。渗透测试常涉及信息收集、漏洞分析、利用、权限提升与横向移动等多个阶段。</p>
+<h2 id="wiki">其他 Wiki 推荐, 部分内容参考引用<a class="headerlink" href="#wiki" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.vul-wiki.org/">https://www.vul-wiki.org/</a></li>
+</ul>
 <h2 id="_1">入门路线<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">熟练使用计算机<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>熟练使用计算机可以先从学习编程语言开始</p>
 <p>编程语言可以先从 <code>C语言</code> 或者 <code>Python</code>(C语言最为基础, 更容易理解计算机的底层, Python最为简单上手) 学起, 但是并不是要求要掌握很熟练的地步(没有长期的使用是不可能的), 而是只要能看懂代码的整体结构, 会运用 AI 辅助编写代码即可, 提高则需要在平时使用中继续学习</p>
 <p>千万不要让学习编程语言拖累后续学习的进度</p>
-<h3 id="web">Web 基础<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
-<p>可以先从学习 OWASP Top 10 开始, 掌握 Web 漏洞基础的原理(知道漏洞如何利用, 如何产生, 如何修复)</p>
+<h3 id="web-wiki">Web 基础(可以去这个<a href="https://www.vul-wiki.org/vulnerability/web/web">Wiki</a>了解更多内容)<a class="headerlink" href="#web-wiki" title="Permanent link">&para;</a></h3>
+<p>可以先从学习几种基础的漏洞开始, 掌握 Web 漏洞基础的原理(知道漏洞如何利用, 如何产生, 如何修复)</p>
 <blockquote>
 <p>或者也可以先去学习 CTF 的 Web 方向</p>
 </blockquote>
@@ -2063,60 +2085,50 @@
 <thead>
 <tr>
 <th>漏洞类型</th>
-<th>描述</th>
-<th>典型攻击场景</th>
+<th>简述</th>
+<th>典型危害</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>A01: Broken Access Control</strong></td>
-<td>权限控制不严，导致越权访问或操作。</td>
-<td>修改请求参数访问他人数据。</td>
+<td>SQL 注入（SQLi）</td>
+<td>用户输入未过滤直接拼接进 SQL 语句</td>
+<td>数据泄露、远程命令执行</td>
 </tr>
 <tr>
-<td><strong>A02: Cryptographic Failures</strong></td>
-<td>加密实现不当，敏感数据泄露。</td>
-<td>明文传输密码或敏感信息。</td>
+<td>跨站脚本攻击（XSS）</td>
+<td>恶意脚本注入页面，在用户浏览器执行</td>
+<td>会话劫持、钓鱼、仿冒</td>
 </tr>
 <tr>
-<td><strong>A03: Injection</strong></td>
-<td>SQL/NoSQL/命令注入，攻击者可执行恶意代码。</td>
-<td>输入特殊字符绕过验证，执行 SQL 语句。</td>
+<td>跨站请求伪造（CSRF）</td>
+<td>利用用户已登录的身份发送伪造请求</td>
+<td>越权操作、资金转账</td>
 </tr>
 <tr>
-<td><strong>A04: Insecure Design</strong></td>
-<td>业务流程设计不严谨，易被绕过。</td>
-<td>跳过支付流程直接访问成功页面。</td>
+<td>服务器端请求伪造（SSRF）</td>
+<td>诱导服务端向攻击者控制的目标发请求</td>
+<td>内网探测、远程代码执行</td>
 </tr>
 <tr>
-<td><strong>A05: Security Misconfiguration</strong></td>
-<td>配置错误导致安全缺陷。</td>
-<td>默认密码、调试接口未关闭。</td>
+<td>命令注入（Command Injection）</td>
+<td>用户输入拼接进系统命令</td>
+<td>远程命令执行</td>
 </tr>
 <tr>
-<td><strong>A06: Vulnerable and Outdated Components</strong></td>
-<td>使用有漏洞的第三方库或组件。</td>
-<td>依赖未及时更新，存在已知漏洞。</td>
+<td>文件上传漏洞</td>
+<td>文件扩展名、MIME 类型、内容验证不足</td>
+<td>木马上传、WebShell 入侵</td>
 </tr>
 <tr>
-<td><strong>A07: Identification and Authentication Failures</strong></td>
-<td>身份认证机制不安全。</td>
-<td>弱密码、验证码可被暴力破解。</td>
+<td>目录遍历</td>
+<td>构造路径读取服务器任意文件</td>
+<td>配置泄露、源代码泄露</td>
 </tr>
 <tr>
-<td><strong>A08: Software and Data Integrity Failures</strong></td>
-<td>代码或数据完整性校验不足。</td>
-<td>未校验更新包来源，遭供应链攻击。</td>
-</tr>
-<tr>
-<td><strong>A09: Security Logging and Monitoring Failures</strong></td>
-<td>缺乏安全日志和监控，攻击难以发现。</td>
-<td>无法及时检测和响应安全事件。</td>
-</tr>
-<tr>
-<td><strong>A10: Server-Side Request Forgery (SSRF)</strong></td>
-<td>服务器被诱导请求恶意地址。</td>
-<td>利用接口让服务器访问内网资源。</td>
+<td>逻辑漏洞</td>
+<td>业务流程设计不合理、缺乏校验</td>
+<td>越权、刷单、数据篡改</td>
 </tr>
 </tbody>
 </table>
@@ -2167,6 +2179,7 @@
 </tr>
 </tbody>
 </table>
+<h3 id="linux">Linux 基础<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <h2 id="_3">其他路线<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>对于初学者来说，也可以先阅读 <a href="%E9%9D%B6%E5%9C%BA/tryhackme/index.html">靶场-tryhackme</a> 目录下的 <code>路径选择</code> 部分，稍作学习后再进行其他目录下的学习</p>
 
@@ -2191,7 +2204,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年9月12日 02:40:47 UTC">2025年9月12日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年9月12日 03:24:32 UTC">2025年9月12日</span>
   </span>
 
     
