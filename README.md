@@ -19,7 +19,7 @@ NISA Wiki 是一个面向网络安全学习者、实战爱好者与CTF选手的�
 
 ```bash
 git clone https://github.com/FJNU-NISA/NISA-Wiki
-cd NISA-WIKI
+cd NISA-Wiki
 ```
 
 建议配合 Typora、Obsidian 等 Markdown 编辑器阅读体验更佳。
