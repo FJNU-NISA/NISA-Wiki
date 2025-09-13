@@ -47,11 +47,11 @@ jobs:
 
       - name: Deploy documentation
         run: mkdocs gh-deploy --force
-
-      - name: Add CNAME file
-        run: |
-          git checkout gh-pages
-          echo "wiki.fjnusec.cn" > CNAME
-          git add CNAME
-          git commit -m "Add CNAME file for custom domain" || exit 0
-          git push origin gh-pages
+      # 自定义域名持久化
+      # - name: Add CNAME file
+      #   run: |
+      #     git checkout gh-pages
+      #     echo "wiki.fjnusec.cn" > CNAME
+      #     git add CNAME
+      #     git commit -m "Add CNAME file for custom domain" || exit 0
+      #     git push origin gh-pages
