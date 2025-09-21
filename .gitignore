@@ -1,1 +1,4 @@
 .cache
+.DS_Store
+docs/.obsidian
+docs/.DS_Store
