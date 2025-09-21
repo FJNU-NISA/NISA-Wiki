@@ -68,6 +68,7 @@
 部分工具可能没给链接或者安装有问题或者没做详细说明，请活用搜索引擎（
 
 刷题平台：
+
 - CTFShow：[https://ctf.show/](https://ctf.show/) ， VIP Web 靶场可提供前中期完整的学习路线，需要 600r，即使如此依旧是 Web 手推荐，免费部分里 Web 题目的质量也不低
 - Hello-CTF Labs：[https://hello-ctf.com/hc-labs/](https://hello-ctf.com/hc-labs/)，赞美 helloCTF，开源系统性学习 Web 安全的靶场，可本地免费部署
 - NSSCTF：[https://www.nssctf.cn/index](https://www.nssctf.cn/index)，需要签到攒金币刷题，可考虑工坊，也有 Hello-CTF Labs 在线环境
@@ -77,6 +78,7 @@
 - Bugku：[https://ctf.bugku.com](https://ctf.bugku.com)
 
 好用的工具：
+
 - PHP 环境搭建：Windows 下推荐 PHPStudy 小皮工具箱，MacOS 下推荐 FlyEnv
 - Docker：建议学习，然后就能快速部署 Hello-CTF Labs 进行系统 web 学习
 - 编解码工具 Cyberchef：https://cyberchef.org
@@ -85,11 +87,13 @@
 - 工具/脚本还有很多，需要自行在日后的学习中不断收集
 
 比赛信息：
+
 - CTFtime：[https://ctftime.org/](https://ctftime.org/) ，主要是国外赛
 - HelloCTF：[https://hello-ctf.com/Event/](https://hello-ctf.com/Event/)
 - 加入协会 NISA 战队，查看内部比赛日程表
 
 其它：
+
 - 很多好用的 Payload：https://github.com/swisskyrepo/PayloadsAllTheThings
 - 各个技术社区&大佬的博客都是学习的好地方
 - 以及你上网搜到的任何结果
