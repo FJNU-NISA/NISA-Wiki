@@ -70,16 +70,43 @@ patch需要一些基础的汇编知识，这里介绍一小部分，我们经常
 	call E8 //调用函数
 	nop 90  //什么都不做
 ```
-在上文的patch界面，我们可以看到前两个数为74，这便是jz的操作码，只要我们把74转换成75，便可以改变这个程序的逻辑。  
+在上文的patch界面，我们可以看到第一个数为74，这便是jz的操作码，只要我们把74转换成75，便可以改变这个程序的逻辑。  
 更改完之后我们还需要将其进行保存才能生效，还是选中一行代码，右键选择Patching，点击里面的Apply patches to，你可以选择保存在当前文件或者另存为别的文件。  
+此外，如果你无法确认哪个汇编代码是你想要修改的代码，ida提供了一个方便的功能，在伪代码界面选择一行代码右键选择Synchronize with  
+![tu 11](./assets/tu11.png)
+然后选择你当前的界面，就可以得到以下效果  
+![tu 12](./assets/tu12.png)		
+![tu 13](./assets/tu13.png)		
+可以很清晰的看到伪代码的汇编代码
 
 ## elf文件逆向
 
+elf文件便是Linux系统下的可执行文件，与exe文件的唯一不同便是无法直接在Windows环境下直接运行elf文件，所以动态调试便成了问题。  
+这里我们选择一种用vm虚拟机和ida进行远程动态调试，首先我们需要安装Linux环境，这里我放一个B站上一个UP做的非常详细的安装VM虚拟机及Linux系统的链接。  
+（温馨提示，vm虚拟机不可随意删除，建议上网找到详细的删除教程再进行删除，或者保留快照）  
+<https://www.bilibili.com/video/BV1NG1uYdEkm?vd_source=92c9a630a424dfb2f0a28468b4dd50bd>
+安装好Linux系统过后，如何进行ida远程动态调试还是给到一个前辈的文章。  
+<https://blog.csdn.net/2301_76262491/article/details/144476637?sharetype=blog&shareId=144476637&sharerefer=APP&sharesource=utptqw&sharefrom=link>
+
+
 ## Python逆向
+
+### 解包
+一般拿到的文件为一个由python语言编写的exe文件，直接用ida分析会发现程序很复杂，我们需要使用pyinstxtractor这个工具来进行解包，解包完会生成一个文件夹，我们需要的是与文件名相同（大概率）的后缀为pyc的文件。  
+在网上找一个pyc文件反编译网站，便可以把pyc文件转成可读的python代码。  
+这里推荐一个反编译网站  
+<pylingual.io>
+
+### pyd文件调试
+如果编译出来的代码中有import你不认识的库，比如：mypy，可以尝试在文件夹中去寻找是否有对应的pyd文件，如：mypy.pyd。  
+找到对应的pyd文件后，打开cmd，cd到该文件夹中，输入python打开python解释器，import这个库  
+同时用ida打开对应的pyd文件，在PyInit处下断点，调试器选择本地调试器，点击Debugger选择Attach to process进行附加进程，找到正在运行的python（一般是最后一个），然后在cmd窗口输入在之前pyc文件编译出来的python代码中所看到的函数调用，如：mypy.fun()，接着在调试窗口进行运行到断点，便可以看到mypy.fun()函数的具体实现了。  
 
 ## Net逆向
 
 ## Unity逆向
+
+大多是游戏的逆向，比较有意思（，通常使用的工具有，dnSPY,CE。
 
 ## Vm逆向
 
@@ -87,14 +114,3 @@ patch需要一些基础的汇编知识，这里介绍一小部分，我们经常
 
 ## go逆向
 
-## 阻碍逆向的手段
-
-### 壳与脱壳
-
-### 花指令
-
-### 反调试
-
-### 加密算法
-
-### 编码
