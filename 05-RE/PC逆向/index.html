@@ -2082,6 +2082,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Python逆向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      解包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyd" class="md-nav__link">
+    <span class="md-ellipsis">
+      pyd文件调试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2126,66 +2150,6 @@
       go逆向
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      阻碍逆向的手段
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="阻碍逆向的手段">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      壳与脱壳
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      花指令
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      反调试
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      加密算法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      编码
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2259,7 +2223,7 @@ R:可以将选中的十六进制转成ascii码（在可见字符范围内）
 在ida中，我们需要在汇编代码界面来进行patch操作，如何进入汇编代码界面参考前文的快捷键，界面如下图所示:
 <img alt="tu 8" src="assets/tu8.png" /><br />
 我们首先要选中要修改的汇编代码，右键选择Patching，再点击里面的change bytes就进入了patch界面了
-<img alt="tu 9" src="./assets/tu9.png" /><br />
+<img alt="tu 9" src="assets/tu9.png" /><br />
 <img alt="tu 10" src="assets/tu10.png" /><br />
 patch需要一些基础的汇编知识，这里介绍一小部分，我们经常修改的汇编代码以及其对应的操作码:
 <div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a>    jz 74  //如果真则跳转
@@ -2268,21 +2232,37 @@ patch需要一些基础的汇编知识，这里介绍一小部分，我们经常
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a>    call E8 //调用函数
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos="5 "></span></a>    nop 90  //什么都不做
 </code></pre></div>
-在上文的patch界面，我们可以看到前两个数为74，这便是jz的操作码，只要我们把74转换成75，便可以改变这个程序的逻辑。<br />
-更改完之后我们还需要将其进行保存才能生效，还是选中一行代码，右键选择Patching，点击里面的Apply patches to，你可以选择保存在当前文件或者另存为别的文件。  </p>
+在上文的patch界面，我们可以看到第一个数为74，这便是jz的操作码，只要我们把74转换成75，便可以改变这个程序的逻辑。<br />
+更改完之后我们还需要将其进行保存才能生效，还是选中一行代码，右键选择Patching，点击里面的Apply patches to，你可以选择保存在当前文件或者另存为别的文件。<br />
+此外，如果你无法确认哪个汇编代码是你想要修改的代码，ida提供了一个方便的功能，在伪代码界面选择一行代码右键选择Synchronize with<br />
+<img alt="tu 11" src="assets/tu11.png" />
+然后选择你当前的界面，就可以得到以下效果<br />
+<img alt="tu 12" src="assets/tu12.png" />   <br />
+<img alt="tu 13" src="assets/tu13.png" />   <br />
+可以很清晰的看到伪代码的汇编代码</p>
 <h2 id="elf">elf文件逆向<a class="headerlink" href="#elf" title="Permanent link">&para;</a></h2>
+<p>elf文件便是Linux系统下的可执行文件，与exe文件的唯一不同便是无法直接在Windows环境下直接运行elf文件，所以动态调试便成了问题。<br />
+这里我们选择一种用vm虚拟机和ida进行远程动态调试，首先我们需要安装Linux环境，这里我放一个B站上一个UP做的非常详细的安装VM虚拟机及Linux系统的链接。<br />
+（温馨提示，vm虚拟机不可随意删除，建议上网找到详细的删除教程再进行删除，或者保留快照）<br />
+<a href="https://www.bilibili.com/video/BV1NG1uYdEkm?vd_source=92c9a630a424dfb2f0a28468b4dd50bd">https://www.bilibili.com/video/BV1NG1uYdEkm?vd_source=92c9a630a424dfb2f0a28468b4dd50bd</a>
+安装好Linux系统过后，如何进行ida远程动态调试还是给到一个前辈的文章。<br />
+<a href="https://blog.csdn.net/2301_76262491/article/details/144476637?sharetype=blog&amp;shareId=144476637&amp;sharerefer=APP&amp;sharesource=utptqw&amp;sharefrom=link">https://blog.csdn.net/2301_76262491/article/details/144476637?sharetype=blog&amp;shareId=144476637&amp;sharerefer=APP&amp;sharesource=utptqw&amp;sharefrom=link</a></p>
 <h2 id="python">Python逆向<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<h3 id="_3">解包<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>一般拿到的文件为一个由python语言编写的exe文件，直接用ida分析会发现程序很复杂，我们需要使用pyinstxtractor这个工具来进行解包，解包完会生成一个文件夹，我们需要的是与文件名相同（大概率）的后缀为pyc的文件。<br />
+在网上找一个pyc文件反编译网站，便可以把pyc文件转成可读的python代码。<br />
+这里推荐一个反编译网站<br />
+<pylingual.io></p>
+<h3 id="pyd">pyd文件调试<a class="headerlink" href="#pyd" title="Permanent link">&para;</a></h3>
+<p>如果编译出来的代码中有import你不认识的库，比如：mypy，可以尝试在文件夹中去寻找是否有对应的pyd文件，如：mypy.pyd。<br />
+找到对应的pyd文件后，打开cmd，cd到该文件夹中，输入python打开python解释器，import这个库<br />
+同时用ida打开对应的pyd文件，在PyInit处下断点，调试器选择本地调试器，点击Debugger选择Attach to process进行附加进程，找到正在运行的python（一般是最后一个），然后在cmd窗口输入在之前pyc文件编译出来的python代码中所看到的函数调用，如：mypy.fun()，接着在调试窗口进行运行到断点，便可以看到mypy.fun()函数的具体实现了。  </p>
 <h2 id="net">Net逆向<a class="headerlink" href="#net" title="Permanent link">&para;</a></h2>
 <h2 id="unity">Unity逆向<a class="headerlink" href="#unity" title="Permanent link">&para;</a></h2>
+<p>大多是游戏的逆向，比较有意思（，通常使用的工具有，dnSPY,CE。</p>
 <h2 id="vm">Vm逆向<a class="headerlink" href="#vm" title="Permanent link">&para;</a></h2>
 <h2 id="js">js逆向<a class="headerlink" href="#js" title="Permanent link">&para;</a></h2>
 <h2 id="go">go逆向<a class="headerlink" href="#go" title="Permanent link">&para;</a></h2>
-<h2 id="_3">阻碍逆向的手段<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="_4">壳与脱壳<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h3 id="_5">花指令<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<h3 id="_6">反调试<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<h3 id="_7">加密算法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<h3 id="_8">编码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 
 
 
@@ -2305,7 +2285,7 @@ patch需要一些基础的汇编知识，这里介绍一小部分，我们经常
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年9月12日 05:08:11 UTC">2025年9月12日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年9月24日 11:16:07 UTC">2025年9月24日</span>
   </span>
 
     
