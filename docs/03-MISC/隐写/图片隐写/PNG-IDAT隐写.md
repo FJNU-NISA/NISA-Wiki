@@ -2,7 +2,7 @@
 
 ## 原理详解
 
-!!! note 
+!!! note "提示"
     可以先去学习一下 `PNG 文件结构`，下文只会简单讲解 `PNG 文件结构`
 
 ### PNG 的数据块 Chunk 
@@ -26,7 +26,7 @@
 ## 例题讲解 [2025MoeCTF-ez_png](https://ctf.xidian.edu.cn/training/22?challenge=861)
 
 
-!!! info 题目信息
+!!! info "题目信息"
     这张平平无奇的图片里藏着一个小秘密。
 
     秘密不在颜色中，而在文件的骨骼里。
@@ -75,7 +75,7 @@ except UnicodeDecodeError:
 
 ## 题单
 
-!!! tip 温馨提示
+!!! tip "温馨提示"
     适当的练习是巩固和提高的重要途径之一
 
 - [2025MoeCTF-ez_png](https://ctf.xidian.edu.cn/training/22?challenge=861)

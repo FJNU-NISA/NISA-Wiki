@@ -8,7 +8,7 @@
 
 ## 题单
 
-!!! tip 温馨提示
+!!! tip "温馨提示"
     适当的练习是巩固和提高的重要途径之一
 
 - [2025MoeCTF-ez_LSB](https://ctf.xidian.edu.cn/training/22?challenge=896)
