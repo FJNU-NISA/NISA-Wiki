@@ -51,7 +51,7 @@ R:可以将选中的十六进制转成ascii码（在可见字符范围内）
 ![tu 7](./assets/tu7.png)  
 然后点击变绿色的三角形就可以进入动态调试模式了。  
 调试的操作在C语言中应该会进行学习，这里不再赘述。  
-另外x32dbg,x64dbg同样也是用来进行动态调试的，我们将在脱壳板块介绍这个软件的使用。
+另外x32dbg，x64dbg同样也是用来进行动态调试的，我们将在脱壳板块介绍这个软件的使用。
 
 ### patch
 
@@ -92,7 +92,7 @@ elf文件便是Linux系统下的可执行文件，与exe文件的唯一不同便
 ## Python逆向
 
 ### 解包
-一般拿到的文件为一个由python语言编写的exe文件，直接用ida分析会发现程序很复杂，我们需要使用pyinstxtractor这个工具来进行解包，解包完会生成一个文件夹，我们需要的是与文件名相同（大概率）的后缀为pyc的文件。  
+一般拿到的文件为一个由python语言编写的exe文件，直接用ida分析会发现程序很复杂，因为python文件用来PyInstaller打包，所以我们需要使用pyinstxtractor这个工具来进行解包，解包完会生成一个文件夹，我们需要的是与文件名相同（大概率）的后缀为pyc的文件。  
 在网上找一个pyc文件反编译网站，便可以把pyc文件转成可读的python代码。  
 这里推荐一个反编译网站  
 <pylingual.io>
@@ -102,15 +102,30 @@ elf文件便是Linux系统下的可执行文件，与exe文件的唯一不同便
 找到对应的pyd文件后，打开cmd，cd到该文件夹中，输入python打开python解释器，import这个库  
 同时用ida打开对应的pyd文件，在PyInit处下断点，调试器选择本地调试器，点击Debugger选择Attach to process进行附加进程，找到正在运行的python（一般是最后一个），然后在cmd窗口输入在之前pyc文件编译出来的python代码中所看到的函数调用，如：mypy.fun()，接着在调试窗口进行运行到断点，便可以看到mypy.fun()函数的具体实现了。  
 
-## Net逆向
-
 ## Unity逆向
 
-大多是游戏的逆向，比较有意思（，通常使用的工具有，dnSPY,CE。
+大多是游戏的逆向，比较有意思（，通常使用的工具有，ida，dnSPY，CE，UABEA，AssetStudio等。
+分为mono和il2cpp两种，mono的逆向相对简单，il2cpp的逆向相对复杂。关于区分mono和il2cpp的逆向，可以通过查看游戏的目录下是否含有mono文件夹，如果有则是mono类型，如果data目录下有il2cpp_data则很有可能是il2cpp类型。
+但不管是mono还是il2cpp类型的游戏，都可以使用UABEA，AssetStudio等工具来获取游戏的资源文件，如果有些题目的flag藏在图片，视频，文本等资源文件中（没有加密），那么有可能不用要进行代码逆向，直接使用这些工具就可以获取到flag了。
+tip:游戏汉化同样是使用UABEA，AssetStudio等工具来寻找，修改游戏中的文本资源文件从而达到汉化的目的。
 
-## Vm逆向
+### mono逆向
 
-## js逆向
+游戏主要逻辑在Assembly-CSharp.dll中，使用dnSPY打开这个dll文件，可以看到游戏的代码逻辑。
+
+### il2cpp逆向
+
+主要逻辑在GameAssembly.dll中，但无法直接用ida来进行分析，首先需要找到global-metadata.dat这个文件，使用il2cppdumper和这个文件进行对GameAssembly.dll进行符号恢复，
+恢复完便可以在ida中看到函数名称了，之后可以利用函数名称来定位加密函数或者一些重要的函数来获得flag了。
+il2cppdumper的使用方法可以参考这个视频，讲的非常详细了。
+【【第拾贰期 REVERSE 分享会】il2cpp逆向通用手段 & 游戏逆向&外挂编写 & 2025游戏安全决赛】 
+<https://www.bilibili.com/video/BV1fYzzB6Ede/?share_source=copy_web&vd_source=92c9a630a424dfb2f0a28468b4dd50bd>
+
+## MFC文件逆向
+
+## wasm逆向
 
 ## go逆向
+
+## 驱动逆向
 
