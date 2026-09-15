@@ -95,7 +95,7 @@ elf文件便是Linux系统下的可执行文件，与exe文件的唯一不同便
 一般拿到的文件为一个由python语言编写的exe文件，直接用ida分析会发现程序很复杂，因为python文件用来PyInstaller打包，所以我们需要使用pyinstxtractor这个工具来进行解包，解包完会生成一个文件夹，我们需要的是与文件名相同（大概率）的后缀为pyc的文件。  
 在网上找一个pyc文件反编译网站，便可以把pyc文件转成可读的python代码。  
 这里推荐一个反编译网站  
-<pylingual.io>
+<https://pylingual.io>
 
 ### pyd文件调试
 如果编译出来的代码中有import你不认识的库，比如：mypy，可以尝试在文件夹中去寻找是否有对应的pyd文件，如：mypy.pyd。  
